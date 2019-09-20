@@ -1,0 +1,651 @@
+#设置编码
+SET NAMES UTF8;
+#丢弃数据库
+DROP DATABASE IF EXISTS furskin_ylyapp;
+#创建数据库
+CREATE DATABASE furskin_ylyapp CHARSET = UTF8;
+#进入数据库
+USE furskin_ylyapp;
+
+
+#创建首页轮播图
+CREATE TABLE index_carousel (
+id SMALLINT PRIMARY KEY AUTO_INCREMENT,
+cid INT,
+img_url VARCHAR(255),
+ref VARCHAR(255)
+);
+#插入数据
+INSERT INTO index_carousel VALUES (
+null, 1, "Carousel-1.png", "#"
+);
+INSERT INTO index_carousel VALUES (
+null, 1, "Carousel-2.png", "#"
+);
+INSERT INTO index_carousel VALUES (
+null, 1, "Carousel-3.png", "#"
+);
+INSERT INTO index_carousel VALUES (
+null, 1, "Carousel-4.jpg", "#"
+);
+INSERT INTO index_carousel VALUES (
+null, 1, "Carousel-1.png", "#"
+);
+
+
+#创建产品表
+CREATE TABLE product(
+  pid INT PRIMARY KEY AUTO_INCREMENT,
+  fid INT,
+  Pimg VARCHAR(255),
+  pname VARCHAR(32),
+  price DECIMAL(10,2),
+  isHot BOOLEAN,
+  isRecomend BOOLEAN
+);
+#插入数据
+INSERT INTO product VALUES(
+null, 2, "TB2qMrsePgy_uJjSZPxXXanNpXa_!!365978755.jpg_240x240.jpg", "新款羊毛皮毛一体拖鞋女包头加厚保暖家居平底情侣棉拖毛毛鞋包邮", "266.00", 1, 0
+);
+INSERT INTO product VALUES(
+null, 2, "TB2PqfvXrGYBuNjy0FoXXciBFXa_!!365978755.jpg_240x240.jpg", "澳洲羊毛皮毛一体包头加厚平底拖鞋夏季家居女情侣棉拖毛毛鞋包邮", "218.00", 1, 0
+);
+INSERT INTO product VALUES(
+null, 2, "TB2lftafLjM8KJjSZFsXXXdZpXa_!!365978755.jpg_240x240.jpg", "【羊丽羊】皮毛一体豆豆鞋冬季雪地靴女保暖小黑鞋羊毛懒人包子鞋", "196.00", 1, 0
+);
+INSERT INTO product VALUES(
+null, 2, "TB2V3uPtsIrBKNjSZK9XXagoVXa_!!365978755.jpg_240x240.jpg", "澳洲羊皮毛一体毛毛棉拖鞋男女情侣一字拖鞋夏季居家空调拖鞋包邮", "166.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 2, "TB2ez__ttcnBKNjSZR0XXcFqFXa_!!365978755.jpg_240x240.jpg", "【羊丽羊】澳洲皮毛一体棉拖鞋毛毛拖鞋可爱拼色羊毛拖鞋室内家居", "148.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 2, "O1CN012EXq0zOIdOwicn8_!!365978755.jpg_240x240.jpg", "澳洲羊皮毛一体毛毛棉拖鞋男女情侣一字拖鞋夏季居家空调拖鞋包邮", "166.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 2, "TB26m35fwjN8KJjSZFCXXb3GpXa_!!365978755.jpg_240x240.jpg", "毛毛拖鞋女夏皮毛一体X拖澳洲家居平底一字拖空调拖室内羊毛拖鞋", "176.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 2, "TB23WeRXk7mBKNjSZFyXXbydFXa_!!365978755.jpg_240x240.jpg", "【羊丽羊】澳洲皮毛一体棉拖鞋毛毛拖鞋可爱拼色羊毛拖鞋室内家居", "148.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 2, "TB2bRqnXf5TBuNjSspcXXbnGFXa_!!365978755.jpg_240x240.jpg", "澳洲羊毛棉拖鞋皮毛一体室内家居拖鞋毛毛拖鞋人字拖夏夹脚拖包邮", "146.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 2, "TB2E1HAXx9YBuNjy0FfXXXIsVXa_!!365978755.jpg_240x240.jpg", "澳洲羊皮毛一体毛毛棉拖鞋男女情侣一字拖鞋夏季居家空调拖鞋包邮", "166.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 3, "TB2ijKyagLD8KJjSszeXXaGRpXa_!!365978755.jpg_240x240.jpg", "羊丽羊  澳洲羊毛一体玩偶纯羊毛公仔动物毛绒羊仿真羊创意定制", "176.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 3, "O1CN01e6lQKz2EXq2N7oLgY_!!365978755.jpg_240x240.jpg", "【羊丽羊】澳洲进口羊皮毛一体狗狗玩偶羊皮毛一体家居饰品", "308.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 3, "O1CN01opDmiF2EXq2QhdsmD_!!365978755.jpg_240x240.jpg", "【羊丽羊】澳洲羊皮毛一体玩偶趴趴狗玩偶公仔羊皮毛一体泰迪狗", "348.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 3, "O1CN012FHe7P2EXq2OAbww1_!!365978755.jpg_240x240.jpg", "【羊丽羊】澳洲羊毛一体玩偶狗狗纯羊毛玩偶公仔皮毛一体家居饰品", "318.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 3, "O1CN012EXq0rDdGCRM1SN_!!365978755.jpg_240x240.jpg", "【羊丽羊】澳洲羊毛一体玩偶羊驼纯羊毛玩偶公仔皮毛一体家居饰品", "498.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 3, "O1CN012EXq0sAkiXzCjjM_!!365978755.jpg_240x240.jpg", "【羊丽羊】澳洲羊毛一体玩偶羊驼纯羊毛玩偶公仔皮毛一体家居饰品", "138.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 3, "O1CN01OVyjer2EXq22HaIIT_!!365978755.jpg_240x240.jpg", "泰迪熊毛绒玩具抱抱熊公仔小号送女友真皮毛玩偶生日儿童节礼物女", "266.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 4, "O1CN012EXq0reDkXeUcHn_!!365978755.jpg_240x240.jpg", "澳洲羊皮抱枕羊毛沙发靠垫高档短羊毛含芯皮毛一体长卷毛抱枕", "238.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 4, "O1CN012EXq0zv5CanWx0I_!!365978755.jpg_240x240.jpg", "澳洲羊皮抱枕羊毛沙发靠垫高档短羊毛含芯皮毛一体卡通抱枕", "238.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 4, "O1CN012EXq0r9dVoC7oG7_!!365978755.jpg_240x240.jpg", "澳洲羊皮抱枕羊毛沙发靠垫高档短羊毛含芯皮毛一体花卉图案抱枕", "238.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 4, "O1CN012EXq0rqVDcjMWiy_!!365978755.jpg_240x240.jpg", "澳洲羊皮抱枕羊毛皮沙发靠垫皮毛一体抱枕短羊毛含芯抱枕拼色靠垫", "238.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 4, "O1CN01M8oZRb2EXq6X0teTB_!!365978755.jpg_240x240.jpg", "羊丽羊欧式羊毛抱枕沙发抱枕靠垫羊毛靠垫抱枕皮毛一体长毛抱枕", "298.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 4, "O1CN012EXq0qph7Pa959y_!!365978755.jpg_240x240.jpg", "【羊丽羊】澳洲羊皮抱枕羊毛沙发靠垫高档短羊毛含芯皮毛抱枕一体", "268.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 4, "O1CN012EXq0ywAKobazva_!!365978755.jpg_240x240.jpg", "【羊丽羊】澳洲羊皮抱枕羊毛沙发靠垫高档短羊毛含芯皮毛一体抱枕", "268.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 4, "O1CN012EXq0yPwoJ46u3o_!!365978755.jpg_240x240.jpg", "【羊丽羊】澳洲羊皮抱枕羊毛沙发靠垫高档短羊毛含芯皮毛一体抱枕", "268.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 4, "O1CN012EXq0xxOo0TXsKc_!!365978755.jpg_240x240.jpg", "【羊丽羊】澳洲羊皮抱枕羊毛沙发靠垫高档短羊毛含芯皮毛一体抱枕", "268.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN01GMAegH2EXq6n4L3j8_!!365978755.jpg_240x240.jpg", "澳洲进口羊毛绒地毯地垫沙发垫羊皮毛一体坐垫卧室地毯飘窗垫", "1380.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN01M3ugKW2EXq6sBKDwo_!!365978755.jpg_240x240.jpg", "【羊丽羊】澳洲进口羊皮毛一体卧室客厅冬季温暖瑜伽垫沙发垫地毯", "698.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN01mVnjcj2EXq6pPmIfu_!!365978755.jpg_240x240.jpg", "【羊丽羊】澳洲进口羊皮毛一体卧室客厅门厅地垫冬季保暖防滑垫", "198.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN014aKmsc2EXq6qibtWU_!!365978755.jpg_240x240.jpg", "澳洲羊毛绒地毯地垫沙发垫羊皮毛一体坐垫卧室客厅卷毛地毯瑜伽垫", "698.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN01tfWnMX2EXq6q1vaKL_!!365978755.jpg_240x240.jpg", "【羊丽羊】澳洲进口羊毛客厅卧室榻榻米垫床垫纯羊皮毛一体茶几垫", "2980.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN01PtI1Yi2EXq6n9lL2N_!!365978755.jpg_240x240.jpg", "澳洲进口羊毛圆形地毯加厚客厅床边毯茶几垫地毯皮毛一体地毯", "2960.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN012EXq0noW4LQoig4_!!365978755.jpg_240x240.jpg", "冬季羊毛椅垫纯羊毛坐垫皮毛一体加厚防滑电脑椅子屁股垫", "138.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN012EXq0okXblKe6Mv_!!365978755.jpg_240x240.jpg", "新款纯羊毛坐垫冬季保暖皮毛一体羊剪绒无靠背羊毛座垫", "158.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN01CHvHRV2EXq6og681o_!!365978755.jpg_240x240.jpg", "新款纯羊毛坐垫冬季保暖皮毛一体羊剪绒无靠背羊毛座垫", "298.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN012EXq0qyomdzhpFB_!!365978755.jpg_240x240.jpg", "长方形瑜伽垫地毯澳洲进口进口材料客厅卧室地毯", "898.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "TB2FqGZXf1TBuNjy0FjXXajyXXa_!!365978755.jpg_240x240.jpg", "真羊毛地毯瑜伽垫长方形沙发垫澳洲进口羊丽羊皮毛一体毯", "1380.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "TB2VB9OqTqWBKNjSZFxXXcpLpXa_!!365978755.jpg_240x240.jpg", "【羊丽羊】澳洲羊皮毛一体地毯卧室瑜伽垫进口地毯", "768.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN012EXq0pyYsTgvzCT_!!365978755.jpg_240x240.jpg", "【羊丽羊】澳洲进口羊皮毛一体瑜伽垫卧室客厅真羊毛地毯", "698.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "TB2XYVrg8fH8KJjy1XbXXbLdXXa_!!365978755.jpg_240x240.jpg", "澳洲羊皮毛一体圆形沙发垫加厚客厅床边毯茶几垫地毯皮毛一体坐垫", "126.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN012EXq0qavJCyK8JK_!!365978755.jpg_240x240.jpg", "澳洲纯羊毛欧式沙发垫套装皮毛一体沙发垫卧室客厅地毯瑜伽垫", "798.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN012EXq10esTxhKGXM_!!365978755.jpg_240x240.jpg", "新款纯羊毛地毯客厅卧室床边地毯羊皮毛一体毛绒地毯", "998.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN012EXq0p3Mh2Nxri7_!!365978755.jpg_240x240.jpg", "冬季羊毛家居坐垫毛垫短毛坐垫皮毛一体坐垫羊剪绒短毛绒坐垫", "258.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN012EXq0oOSjdIRyse_!!365978755.jpg_240x240.jpg", "羊丽羊】澳洲羊毛椅垫沙发坐垫皮毛一体方形垫子羊剪绒毛", "398.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN012EXq10siTs9XPYC_!!365978755.jpg_240x240.jpg", "【羊丽羊】新款澳洲羊皮毛一体方形纯色椅垫沙发垫飘窗垫", "118.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN012EXq0yP0nfbQrhi_!!365978755.jpg_240x240.jpg", "澳洲羊皮沙发坐垫羊毛坐垫纯羊毛坐垫沙发坐垫椅子垫椅垫冬季椅垫", "188.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN012EXq0nEQiuO4Uzh_!!365978755.jpg_240x240.jpg", "澳洲羊毛沙发垫羊毛椅垫毛绒坐垫短毛办公椅坐垫厚羊皮椅子垫", "238.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN012EXq114BY9bD9XS_!!365978755.jpg_240x240.jpg", "羊丽羊澳洲进口纯羊毛椅垫整张羊皮毛一体双拼自由皮形卧室床地毯", "998.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN012EXq12Jgzb6XuTI_!!365978755.jpg_240x240.jpg", "【羊丽羊】澳洲羊皮毛坐垫椅垫沙发垫无染色自然花羊皮毛一体垫子", "498.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN012EXq0pxwzQeeFw6_!!365978755.jpg_240x240.jpg", "【羊丽羊】澳洲羊毛椅垫沙发坐垫皮毛一体方形垫子羊剪绒毛垫", "298.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN012EXq0p2zBEDaqAS_!!365978755.jpg_240x240.jpg", "【羊丽羊】澳洲羊毛椅垫沙发坐垫皮毛一体方形垫子羊剪绒毛垫", "368.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN012EXq0mClDAUf3fa_!!365978755.jpg_240x240.jpg", "【羊丽羊】澳洲羊毛坐垫冬季保暖卡通熊大毯子纯羊皮毛一体地毯", "2580.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN012EXq0oRqssV0qkY_!!365978755.jpg_240x240.jpg", "【羊丽羊】澳洲羊毛椅垫沙发坐垫皮毛一体方形垫子羊剪绒毛垫", "368.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN012EXq0o2uncGYDyW_!!365978755.jpg_240x240.jpg", "【羊丽羊】红木家具羊皮毛坐垫沙发垫办公椅垫餐椅垫方形垫", "298.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN012EXq0rcTk2CIRRD_!!365978755.jpg_240x240.jpg", "【羊丽羊】澳洲羊毛椅垫沙发坐垫皮毛一体方形垫子羊剪绒毛垫", "298.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN012EXq0q7Ys2w6Mad_!!365978755.jpg_240x240.jpg", "羊丽羊澳洲羊毛儿童房防滑卡通地毯羊皮毛一体加厚卧室床边小地毯", "298.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "TB2LOWgahPI8KJjSspfXXcCFXXa_!!365978755.jpg_240x240.jpg", "羊丽羊客厅茶几羊毛地毯卧室床边毯满铺欧式现代家用防滑进门地毯", "6980.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "TB2Xb1xaf6H8KJjSspmXXb2WXXa_!!365978755.jpg_240x240.jpg", "欧式卧室满铺客厅茶几羊剪绒地毯定制皮毛一体长方形床边毯", "6980.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN012EXq0t8K0UUZRRO_!!365978755.jpg_240x240.jpg", "羊丽羊澳洲羊毛儿童房防滑卡通地毯羊皮毛一体加厚卧室床边小地毯", "398.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN012EXq0sGMoMPxb3n_!!365978755.jpg_240x240.jpg", "羊丽羊 澳洲羊毛沙发垫整张羊皮地毯羊皮自由皮型卧室地毯飘窗垫", "1160.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "TB2e85BanTI8KJjSsphXXcFppXa_!!365978755.jpg_240x240.jpg", "羊丽羊澳洲羊毛卧室地毯整张羊皮沙发垫客厅床边毯茶几垫飘窗垫", "1960.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "TB2HpOJanvI8KJjSspjXXcgjXXa_!!365978755.jpg_240x240.jpg", "澳洲羊毛沙发垫椅垫羊皮毛一体地毯飘窗垫客厅长毛羊毛坐垫包邮", "798.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "TB2qznXX6b.heNjSZFAXXchKXXa_!!365978755.jpg_240x240.jpg", "羊丽羊澳洲羊毛整张羊皮毛一体沙发垫客厅地毯飘窗垫羊毛自由皮型", "229.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN012EXq0q090gwLKVq_!!365978755.jpg_240x240.jpg", "【羊丽羊】澳洲纯羊毛沙发垫 欧式高档羊皮毛一体飘窗垫羊毛皮型", "498.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN012EXq0sk12E2Kuwp_!!365978755.jpg_240x240.jpg", "【羊丽羊】澳洲皮毛一体沙发垫坐垫飘窗垫卡通家居短毛纯羊毛垫子", "1186.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN012EXq0rvv0Mo5eU2_!!365978755.jpg_240x240.jpg", "羊丽羊 澳洲羊皮毛一体椅垫纯羊毛地垫卡通动物毯子沙发垫定做", "528.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN012EXq0sAuSOeAkW1_!!365978755.jpg_240x240.jpg", "【羊丽羊】澳洲羊毛坐垫冬季保暖卡通小熊毯子纯羊皮毛一体沙发垫", "488.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN012EXq0peNxnT8jUA_!!365978755.jpg_240x240.jpg", "【羊丽羊】真皮毛一体沙发垫飘窗垫地垫可填充考拉儿童坐垫", "219.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "TB2tin.omfD8KJjSszhXXbIJFXa_!!365978755.jpg_240x240.jpg", "澳洲羊毛羊毛绒卡通地毯地垫沙发垫羊皮毛一体坐垫卧室地毯飘窗垫", "1190.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN012EXq0sEcGBjz2OT_!!365978755.jpg_240x240.jpg", "【羊丽羊】羊毛冬季汽车坐垫皮毛一体前排单座中长毛绒羊毛垫", "439.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "TB2UYFqg8HH8KJjy0FbXXcqlpXa_!!365978755.jpg_240x240.jpg", "澳洲纯羊毛床垫冬季加厚单双人保暖皮毛一体羊毛床褥子垫", "3980.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "TB2aS6Paf2H8KJjy0FcXXaDlFXa_!!365978755.jpg_240x240.jpg", "【羊丽羊】羊丽羊澳洲羊皮毛床垫茶几垫地毯", "2580.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "TB2Q5dBegvD8KJjy0FlXXagBFXa_!!365978755.jpg_240x240.jpg", "澳洲羊皮抱枕羊毛沙发靠垫高档短羊毛含芯皮毛一体卡通抱枕", "238.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN014BaGiY2EXq6rkcCQI_!!365978755.jpg_240x240.jpg", "【羊丽羊】欧式羊毛抱枕沙发抱枕靠垫羊毛靠垫抱枕皮毛一体抱枕", "188.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN01JsCSch2EXq6oqG0Zc_!!365978755.jpg_240x240.jpg", "【羊丽羊】椅垫沙发坐垫澳洲羊皮毛一体方形垫子羊剪绒毛垫", "238.00", 0, 1
+);
+INSERT INTO product VALUES(
+null, 1, "O1CN01LH44VM2EXq6onzMUF_!!365978755.jpg_240x240.jpg", "澳洲冬季纯羊毛坐椅垫办公室电脑椅垫皮毛一体加厚保暖防滑坐垫", "178.00", 0, 1
+);
+#创建分类表
+CREATE TABLE catagory(
+  cid INT PRIMARY KEY AUTO_INCREMENT,
+  cname VARCHAR(255)
+);
+#插入数据
+INSERT INTO catagory VALUES(
+null, "羊毛垫子"
+);
+INSERT INTO catagory VALUES(
+null, "羊毛拖鞋"
+);
+INSERT INTO catagory VALUES(
+null, "羊毛公仔"
+);
+INSERT INTO catagory VALUES(
+null, "羊毛抱枕"
+);
+#创建评论表
+CREATE TABLE comments (
+   mid SMALLINT PRIMARY KEY AUTO_INCREMENT, 
+   uid INT, #标志为某个用户的评论
+   pid INT, #标志为某个商品的评论
+   mtime Date,
+   head_url VARCHAR(255),
+   nickName VARCHAR(32),
+   score INT,
+   comments  VARCHAR(300),
+   comment_url VARCHAR(255),
+   hasImg BOOLEAN,
+   isLowscore BOOLEAN
+);
+#插入数据
+INSERT INTO comments VALUES(
+    null, 1, 2, "2019-5-9", "head_url1.jpg", "文文和仙仙的故事", 5, "速度快，味道好，物超所值","p_url1.jpg,p_url2.jpg,p_url3.jpg",1, 0
+);
+INSERT INTO comments VALUES(
+    null, 2, 2, "2019-8-5", "head_url2.jpg", "像极了大神队",4, "有点辣","p_url1.jpg,p_url2.jpg,p_url3.jpg",1, 0
+);
+INSERT INTO comments VALUES(
+    null, 3, 2, "2019-8-6", "head_url3.jpg", "那些年",2, "有点辣，分量太少","",0, 1
+);
+
+#创建订单表
+CREATE TABLE orders (
+  oid INT PRIMARY KEY AUTO_INCREMENT,
+  otime DATE,
+  orderno VARCHAR(128),
+  uid INT,
+  pid INT,
+  Pimg VARCHAR(255),
+  pname VARCHAR(32),
+  price DECIMAL(10,2),
+  pcount INT,
+  isComment BOOLEAN #是否已经评论，0：未评  1：已评
+);
+#插入数据  模拟同一个用户买了三个不同的商品
+INSERT INTO orders VALUES(
+    null,  "2019-8-5", "c524071718756721", 1, 1, "5583547_1528166736.jpg", "小台农芒果新鲜水果 带箱10斤包邮", "66.6", 5, 0
+);
+INSERT INTO orders VALUES(
+    null, "2019-8-7", "BB21787122568574", 1, 2, "5583529_1528166720.jpg", "周小帅私房菜麻辣小 龙虾3斤装5钱/只", "98", 7, 0
+);
+INSERT INTO orders VALUES(
+    null, "2019-8-10", "BA17827442070406",  1, 3, "5583509_1528166701.jpg", "老杜香酥鸭500g*2烤 鸭整只酱板鸭", "49.6", 4, 0
+);
+#创建购物车表
+CREATE TABLE cart (
+  gid INT PRIMARY KEY AUTO_INCREMENT,
+  gtime DATE,
+  uid INT,
+  pid INT,
+  Pimg VARCHAR(255),
+  pname VARCHAR(32),
+  price DECIMAL(10,2),
+  count VARCHAR(32)
+);
+#插入数据
+INSERT INTO cart VALUES(
+    null,  "2019-8-5", 1, 1, "5583547_1528166736.jpg", "小台农芒果新鲜水果 带箱10斤包邮", "66.6", "10"
+);
+INSERT INTO cart VALUES(
+    null, "2019-8-7",  1, 2, "5583529_1528166720.jpg", "周小帅私房菜麻辣小 龙虾3斤装5钱/只", "98", "15"
+);
+#创建用户表
+CREATE TABLE user(
+  uid INT PRIMARY KEY AUTO_INCREMENT,
+  uname VARCHAR(128),
+  avatar VARCHAR(255),
+  nickName VARCHAR(128),
+  upwd VARCHAR(32),
+  email VARCHAR(128),
+  phone VARCHAR(32),
+  sex BOOLEAN  # 1: 男  0：女
+);
+
+#插入数据
+INSERT INTO user VALUES(
+    null, "tom123", "", "文文和仙仙的故事", "123", "469775376@qq.com", "12147483647", 0
+);
+INSERT INTO user VALUES(
+    null, "jerry055", "", "像极了大神", "456", "469775376@qq.com", "12454987540", 1
+);
+
+#创建地址表
+CREATE TABLE addr(
+  aid INT PRIMARY KEY AUTO_INCREMENT,
+  uid INT,
+  uname VARCHAR(32),
+  phone VARCHAR(32),
+  province VARCHAR(32),
+  city VARCHAR(32),
+  area VARCHAR(32),
+  details VARCHAR(128)
+);
+#插入数据
+INSERT INTO addr VALUES(
+    null, 1, "黄先生", "15847563120","广东省", "湛江市", "霞山区","樱桃镇桃花村"
+);
+INSERT INTO addr VALUES(
+    null, 2, "许小姐", "14587564102","湖南省", "长沙市", "长步镇", "十里镇杏花村"
+);
+#创建产品详情表
+CREATE TABLE details(
+  did INT PRIMARY KEY AUTO_INCREMENT,
+  pid INT,
+  carousel_img VARCHAR(1275),
+  pname VARCHAR(32),
+  price VARCHAR(32),
+  details_img VARCHAR(1275)
+);
+#插入数据
+INSERT INTO details VALUES(
+    null, 1, "TB2qMrsePgy_uJjSZPxXXanNpXa_!!365978755.jpg,TB2swfTePgy_uJjSZSgXXbz0XXa_!!365978755.jpg,TB2OyqmXhGYBuNjy0FnXXX5lpXa_!!365978755.jpg,TB2YwSpXeOSBuNjy0FdXXbDnVXa_!!365978755.jpg,TB2Gw.6fpYM8KJjSZFuXXcf7FXa_!!365978755.jpg,TB2qMrsePgy_uJjSZPxXXanNpXa_!!365978755.jpg", "新款羊毛皮毛一体拖鞋女包头加厚保暖家居平底情侣棉拖毛毛鞋包邮", "266.00","TB2q4ymXaSWBuNjSsrbXXa0mVXa_!!365978755.jpg,TB2ERbpePgy_uJjSZK9XXXvlFXa_!!365978755.jpg,TB2dkqpXeuSBuNjSsziXXbq8pXa_!!365978755.jpg,TB2kKWvfval9eJjSZFzXXaITVXa_!!365978755.jpg,TB2E2_ufBfM8KJjSZPiXXXdspXa_!!365978755.jpg,TB2tUCmXXuWBuNjSszbXXcS7FXa_!!365978755.jpg,TB2nLOoXgmTBuNjy1XbXXaMrVXa_!!365978755.jpg,TB23Yz8XnlYBeNjSszcXXbwhFXa_!!365978755.jpg,TB2zk9mXhGYBuNjy0FnXXX5lpXa_!!365978755.jpg"
+);
+#插入数据
+INSERT INTO details VALUES(
+    null, 2, "TB2PqfvXrGYBuNjy0FoXXciBFXa_!!365978755.jpg,TB2Hmy_XnmWBKNjSZFBXXXxUFXa_!!365978755.jpg,TB20MzwXwmTBuNjy1XbXXaMrVXa_!!365978755.jpg,TB2H5LxXv9TBuNjy0FcXXbeiFXa_!!365978755.jpg,TB23iPxXv9TBuNjy0FcXXbeiFXa_!!365978755.jpg,TB2PqfvXrGYBuNjy0FoXXciBFXa_!!365978755.jpg", "澳洲羊毛皮毛一体包头加厚平底拖鞋夏季家居女情侣棉拖毛毛鞋包邮", "218.00","TB2GS9WXljTBKNjSZFuXXb0HFXa_!!365978755.jpg,TB2MDKQXb3nBKNjSZFMXXaUSFXa_!!365978755.jpg,TB2DgrwXlyWBuNkSmFPXXXguVXa_!!365978755.jpg,TB2ObfyXAyWBuNjy0FpXXassXXa_!!365978755.jpg,TB2GaiOXXooBKNjSZPhXXc2CXXa_!!365978755.jpg,TB2hrhfXStYBeNjSspkXXbU8VXa_!!365978755.jpg,TB2nJ_zXxGYBuNjy0FnXXX5lpXa_!!365978755.jpg,TB2kz2vXcyYBuNkSnfoXXcWgVXa_!!365978755.jpg,TB2jgrwXqSWBuNjSsrbXXa0mVXa_!!365978755.jpg,TB2mj_vXcyYBuNkSnfoXXcWgVXa_!!365978755.jpg,TB2ZhbxXfuSBuNkHFqDXXXfhVXa_!!365978755.jpg"
+);
+#插入数据
+INSERT INTO details VALUES(
+    null, 3, "TB2lftafLjM8KJjSZFsXXXdZpXa_!!365978755.jpg,TB2A3L9XntYBeNjy1XdXXXXyVXa_!!365978755.jpg,TB2sVRBXlmWBuNkSndVXXcsApXa_!!365978755.jpg,TB2tUH7XmtYBeNjSspaXXaOOFXa_!!365978755.jpg,TB2TqmmXkCWBuNjy0FaXXXUlXXa_!!365978755.jpg,TB2lftafLjM8KJjSZFsXXXdZpXa_!!365978755.jpg", "【羊丽羊】皮毛一体豆豆鞋冬季雪地靴女保暖小黑鞋羊毛懒人包子鞋", "196.00","TB2d_pBXgKTBuNkSne1XXaJoXXa_!!365978755.jpg,TB20Cm5ffQs8KJjSZFEXXc9RpXa_!!365978755.jpg,TB2CmQEfDfN8KJjSZFjXXXGvpXa_!!365978755.jpg,TB23aKmXhSYBuNjSspjXXX73VXa_!!365978755.jpg,TB2fJamXkCWBuNjy0FaXXXUlXXa_!!365978755.jpg,TB2nS5lXb1YBuNjSszeXXablFXa_!!365978755.jpg,TB21.NBXfuSBuNkHFqDXXXfhVXa_!!365978755.jpg,TB2rqKoXgmTBuNjy1XbXXaMrVXa_!!365978755.jpg,TB2yl9nXXuWBuNjSspnXXX1NVXa_!!365978755.jpg"
+);
+#插入数据
+INSERT INTO details VALUES(
+    null, 4, "TB2V3uPtsIrBKNjSZK9XXagoVXa_!!365978755.jpg,TB2Nkvrtz7nBKNjSZLeXXbxCFXa_!!365978755.jpg,TB2tAX4tIj_B1NjSZFHXXaDWpXa_!!365978755.jpg,TB2GRB4tIj_B1NjSZFHXXaDWpXa_!!365978755.jpg,TB2q75utHZnBKNjSZFrXXaRLFXa_!!365978755.jpg,TB2V3uPtsIrBKNjSZK9XXagoVXa_!!365978755.jpg", "澳洲羊皮毛一体毛毛棉拖鞋男女情侣一字拖鞋夏季居家空调拖鞋包邮", "166.00","TB2gmPissIrBKNjSZK9XXagoVXa_!!365978755.jpg,TB2vsaitOAnBKNjSZFvXXaTKXXa_!!365978755.jpg,TB2KN_bsHArBKNjSZFLXXc_dVXa_!!365978755.jpg,TB2_OWItTCWBKNjSZFtXXaC3FXa_!!365978755.jpg,TB2tRKBtH3nBKNjSZFMXXaUSFXa_!!365978755.jpg,TB2_wDptpooBKNjSZPhXXc2CXXa_!!365978755.jpg,TB2gebVtBnTBKNjSZPfXXbf1XXa_!!365978755.jpg,TB2DVI0oMZC2uNjSZFnXXaxZpXa_!!365978755.jpg,TB2g4yitOAnBKNjSZFvXXaTKXXa_!!365978755.jpg,TB2EMjVtBnTBKNjSZPfXXbf1XXa_!!365978755.jpg,TB2Kz_ptpooBKNjSZPhXXc2CXXa_!!365978755.jpg,TB2qLKDsFkoBKNjSZFkXXb4tFXa_!!365978755.jpg,TB2zcSUsQUmBKNjSZFOXXab2XXa_!!365978755.jpg,TB2ratBn3ZC2uNjSZFnXXaxZpXa_!!365978755.jpg"
+);
+#插入数据
+INSERT INTO details VALUES(
+    null, 5, "TB2ez__ttcnBKNjSZR0XXcFqFXa_!!365978755.jpg,TB24oHjtrwrBKNjSZPcXXXpapXa_!!365978755.jpg,TB2wGL2tBnTBKNjSZPfXXbf1XXa_!!365978755.jpg,TB2aUrntz7nBKNjSZLeXXbxCFXa_!!365978755.jpg,TB2wGL2tBnTBKNjSZPfXXbf1XXa_!!365978755.jpg,TB2ez__ttcnBKNjSZR0XXcFqFXa_!!365978755.jpg", "【羊丽羊】澳洲皮毛一体棉拖鞋毛毛拖鞋可爱拼色羊毛拖鞋室内家居", "148.00","TB2gmPissIrBKNjSZK9XXagoVXa_!!365978755.jpg,TB2ANF_tOQnBKNjSZFmXXcApVXa_!!365978755.jpg,TB2KN_bsHArBKNjSZFLXXc_dVXa_!!365978755.jpg,TB2i8xJtQ7mBKNjSZFyXXbydFXa_!!365978755.jpg,TB2xqdxtRsmBKNjSZFFXXcT9VXa_!!365978755.jpg,TB2N09ytpooBKNjSZPhXXc2CXXa_!!365978755.jpg,TB2fuWytpooBKNjSZPhXXc2CXXa_!!365978755.jpg,TB2J8SvttknBKNjSZKPXXX6OFXa_!!365978755.jpg,TB2h3VmtRjTBKNjSZFwXXcG4XXa_!!365978755.jpg,TB2AQyjtqQoBKNjSZJnXXaw9VXa_!!365978755.jpg,TB2uPk4tsj_B1NjSZFHXXaDWpXa_!!365978755.jpg,TB2C1pLtH3nBKNjSZFMXXaUSFXa_!!365978755.jpg,TB2B3hutHZnBKNjSZFrXXaRLFXa_!!365978755.jpg,TB2qLKDsFkoBKNjSZFkXXb4tFXa_!!365978755.jpg,TB2zcSUsQUmBKNjSZFOXXab2XXa_!!365978755.jpg,TB2ratBn3ZC2uNjSZFnXXaxZpXa_!!365978755.jpg"
+);
+#插入数据
+INSERT INTO details VALUES(
+    null, 6, "O1CN012EXq0zOIdOwicn8_!!365978755.jpg,O1CN012EXq0zb3DV11B0O_!!365978755.jpg,O1CN012EXq0zb568Htf0g_!!365978755.jpg,TB26SrksTCWBKNjSZFtXXaC3FXa_!!365978755.jpg,TB2K_n1srwrBKNjSZPcXXXpapXa_!!365978755.jpg,O1CN012EXq0zOIdOwicn8_!!365978755.jpg", "澳洲羊皮毛一体毛毛棉拖鞋男女情侣一字拖鞋夏季居家空调拖鞋包邮", "166.00","TB2gmPissIrBKNjSZK9XXagoVXa_!!365978755.jpg,TB21VaJsHZnBKNjSZFGXXbt3FXa_!!365978755.jpg,TB2KN_bsHArBKNjSZFLXXc_dVXa_!!365978755.jpg,TB2m4zctz7nBKNjSZLeXXbxCFXa_!!365978755.jpg,TB2r6P.sCYTBKNjSZKbXXXJ8pXa_!!365978755.jpg,TB2KMeBsTqWBKNjSZFAXXanSpXa_!!365978755.jpg,TB2GKbesAZmBKNjSZPiXXXFNVXa_!!365978755.jpg,TB2v_.xsBnTBKNjSZPfXXbf1XXa_!!365978755.jpg,TB2FxKBsTqWBKNjSZFAXXanSpXa_!!365978755.jpg,TB2ABy9sOMnBKNjSZFzXXc_qVXa_!!365978755.jpg,TB2.amPsRsmBKNjSZFsXXaXSVXa_!!365978755.jpg,TB26TIrsEOWBKNjSZKzXXXfWFXa_!!365978755.jpg,TB2qLKDsFkoBKNjSZFkXXb4tFXa_!!365978755.jpg,TB2zcSUsQUmBKNjSZFOXXab2XXa_!!365978755.jpg,TB2ratBn3ZC2uNjSZFnXXaxZpXa_!!365978755.jpg"
+);
+#插入数据
+INSERT INTO details VALUES(
+    null, 7, "TB26m35fwjN8KJjSZFCXXb3GpXa_!!365978755.jpg,TB2CfFAXcyYBuNkSnfoXXcWgVXa_!!365978755.jpg,TB20CVXfLjM8KJjSZFsXXXdZpXa_!!365978755.jpg,TB2QJMEfDfN8KJjSZFjXXXGvpXa_!!365978755.jpg,TB2mBGmXf5TBuNjSspmXXaDRVXa_!!365978755.jpg,TB26m35fwjN8KJjSZFCXXb3GpXa_!!365978755.jpg", "毛毛拖鞋女夏皮毛一体X拖澳洲家居平底一字拖空调拖室内羊毛拖鞋", "176.00","TB28KFAXiCYBuNkHFCcXXcHtVXa_!!365978755.jpg,TB2wxykXb5YBuNjSspoXXbeNFXa_!!365978755.jpg,TB2EqqDfoo09KJjSZFDXXb9npXa_!!365978755.jpg,TB2eiSmXf5TBuNjSspcXXbnGFXa_!!365978755.jpg,TB2KPumXf5TBuNjSspmXXaDRVXa_!!365978755.jpg,TB2WLr4nDtYBeNjy1XdXXXXyVXa_!!365978755.png,TB2WLr4nDtYBeNjy1XdXXXXyVXa_!!365978755.jpg,TB28t9kXbSYBuNjSspfXXcZCpXa_!!365978755.jpg,TB2lzwYfpTM8KJjSZFlXXaO8FXa_!!365978755.jpg,TB2AxinXeGSBuNjSspbXXciipXa_!!365978755.jpg"
+);
+#插入数据
+INSERT INTO details VALUES(
+    null, 8, "TB23WeRXk7mBKNjSZFyXXbydFXa_!!365978755.jpg,TB2SjGRXbZnBKNjSZFKXXcGOVXa_!!365978755.jpg,TB2CaqRXk7mBKNjSZFyXXbydFXa_!!365978755.jpg,TB2mGfyXA9WBuNjSspeXXaz5VXa_!!365978755.jpg,TB25i6BXv1TBuNjy0FjXXajyXXa_!!365978755.jpg,TB23WeRXk7mBKNjSZFyXXbydFXa_!!365978755.jpg", "【羊丽羊】澳洲皮毛一体棉拖鞋毛毛拖鞋可爱拼色羊毛拖鞋室内家居", "148.00","TB2AtnwXrSYBuNjSspiXXXNzpXa_!!365978755.jpg,TB2KEvBXv9TBuNjy1zbXXXpepXa_!!365978755.jpg,TB2x6bAXrSYBuNjSspfXXcZCpXa_!!365978755.jpg,TB2VsiOXdknBKNjSZKPXXX6OFXa_!!365978755.jpg,TB2KPTyXruWBuNjSszgXXb8jVXa_!!365978755.jpg,TB2MvOUXf6TBKNjSZJiXXbKVFXa_!!365978755.png,TB2dQfyXruWBuNjSszgXXb8jVXa_!!365978755.jpg,TB25QfBXv1TBuNjy0FjXXajyXXa_!!365978755.jpg,TB2zMYCXuGSBuNjSspbXXciipXa_!!365978755.jpg,TB2pb2yXA9WBuNjSspeXXaz5VXa_!!365978755.jpg,TB2GZ6AXuuSBuNjSsplXXbe8pXa_!!365978755.jpg"
+);
+#插入数据
+INSERT INTO details VALUES(
+    null, 9, "TB2bRqnXf5TBuNjSspcXXbnGFXa_!!365978755.jpg,TB2yJGlXh9YBuNjy0FfXXXIsVXa_!!365978755.jpg,TB229anXf9TBuNjy1zbXXXpepXa_!!365978755.jpg,TB2olBAXiCYBuNkHFCcXXcHtVXa_!!365978755.jpg,TB2HVT9XntYBeNjy1XdXXXXyVXa_!!365978755.jpg,TB2bRqnXf5TBuNjSspcXXbnGFXa_!!365978755.jpg", "澳洲羊毛棉拖鞋皮毛一体室内家居拖鞋毛毛拖鞋人字拖夏夹脚拖包邮", "146.00","TB2O.alXXGWBuNjy0FbXXb4sXXa_!!365978755.jpg,TB2agHFePgy_uJjSZKzXXb_jXXa_!!365978755.jpg,TB2Kv_6XmBYBeNjy0FeXXbnmFXa_!!365978755.jpg,TB2zFevfval9eJjSZFzXXaITVXa_!!365978755.jpg,TB25IilXmCWBuNjy0FhXXb6EVXa_!!365978755.jpg,TB2r9I0fpHM8KJjSZFwXXcibXXa_!!365978755.jpg,TB2fYegXm8YBeNkSnb4XXaevFXa_!!365978755.jpg,TB281ioXeSSBuNjy0FlXXbBpVXa_!!365978755.jpg,TB2kSenXf1TBuNjy0FjXXajyXXa_!!365978755.jpg"
+);
+#插入数据
+INSERT INTO details VALUES(
+    null,10, "TB2E1HAXx9YBuNjy0FfXXXIsVXa_!!365978755.jpg,TB2VhiNXaQoBKNjSZJnXXaw9VXa_!!365978755.jpg,TB2O36vXrSYBuNjSspiXXXNzpXa_!!365978755.jpg,TB2ZUobXm8YBeNkSnb4XXaevFXa_!!365978755.jpg,TB2oGrAXr9YBuNjy0FgXXcxcXXa_!!365978755.jpg,TB2E1HAXx9YBuNjy0FfXXXIsVXa_!!365978755.jpg", "澳洲羊皮毛一体毛毛棉拖鞋男女情侣一字拖鞋夏季居家空调拖鞋包邮", "166.00","TB27NqNXaQoBKNjSZJnXXaw9VXa_!!365978755.jpg,TB2yZKVXmYTBKNjSZKbXXXJ8pXa_!!365978755.jpg,TB2kvCRXbZnBKNjSZFhXXc.oXXa_!!365978755.jpg,TB2_uBjXTJYBeNjy1zeXXahzVXa_!!365978755.jpg,TB2v8PBXuuSBuNjSsziXXbq8pXa_!!365978755.jpg,TB2civCXuySBuNjy1zdXXXPxFXa_!!365978755.jpg,TB2XBLAXv5TBuNjSspcXXbnGFXa_!!365978755.jpg,TB2n0WRXbArBKNjSZFLXXc_dVXa_!!365978755.jpg,TB2foYxXr1YBuNjSszeXXablFXa_!!365978755.jpg,TB2ApjBXv1TBuNjy0FjXXajyXXa_!!365978755.jpg,TB2eLWNXbwrBKNjSZPcXXXpapXa_!!365978755.jpg"
+);
+#插入数据
+INSERT INTO details VALUES(
+    null,11, "TB2ijKyagLD8KJjSszeXXaGRpXa_!!365978755.jpg,TB2JcaHagDD8KJjy0FdXXcjvXXa_!!365978755.jpg,TB2aCKxanvI8KJjSspjXXcgjXXa_!!365978755.jpg,TB2i51tah6I8KJjSszfXXaZVXXa_!!365978755.jpg,TB2TgCicHMlyKJjSZFlXXbMoFXa_!!365978755.jpg,TB2ijKyagLD8KJjSszeXXaGRpXa_!!365978755.jpg", "羊丽羊  澳洲羊毛一体玩偶纯羊毛公仔动物毛绒羊仿真羊创意定制", "176.00","TB2.RGndrRkpuFjSspmXXc.9XXa_!!365978755.jpg,TB2MSuQbAUkyKJjy1zjXXX1wFXa_!!365978755.jpg,TB2rI_RbA.OyuJjSszhXXbZbVXa_!!365978755.jpg,TB2jhqRbpokyKJjy1zbXXXZfVXa_!!365978755.jpg,TB2CR9UbBAkyKJjy0FeXXadhpXa_!!365978755.jpg,TB2TOUjeQqvpuFjSZFhXXaOgXXa_!!365978755.jpg,TB2Ph7TeOpnpuFjSZFIXXXh2VXa_!!365978755.jpg,TB2nO_HXDcCL1FjSZFPXXXZgpXa_!!365978755.jpg,TB2g8wYeHJmpuFjSZFBXXXaZXXa_!!365978755.jpg,TB2Cs76eJ4opuFjSZFLXXX8mXXa_!!365978755.jpg,TB2Y2E6eH4npuFjSZFmXXXl4FXa_!!365978755.jpg,
+    TB2VkZUeUhnpuFjSZFEXXX0PFXa_!!365978755.jpg,TB2WgVoXyC9MuFjSZFoXXbUzFXa_!!365978755.jpg,TB2qHxee5BnpuFjSZFzXXaSrpXa_!!365978755.jpg,TB2FlcEeHBnpuFjSZFGXXX51pXa_!!365978755.jpg,TB285ATeOpnpuFjSZFIXXXh2VXa_!!365978755.jpg,TB2T6.8eNlmpuFjSZPfXXc9iXXa_!!365978755.jpg,TB2oJA6eJ4opuFjSZFLXXX8mXXa_!!365978755.jpg,TB27lsUeUhnpuFjSZFEXXX0PFXa_!!365978755.jpg"
+);
+#插入数据
+INSERT INTO details VALUES(
+    null,12, "O1CN01e6lQKz2EXq2N7oLgY_!!365978755.jpg,O1CN01zDSAph2EXq2QVHL1i_!!365978755.jpg,O1CN01mExQ9Q2EXq2PCq7GV_!!365978755.jpg,O1CN01m0ptLt2EXq2PSV4sZ_!!365978755.jpg,O1CN012yZ4582EXq2PPdIbt_!!365978755.jpg,O1CN01e6lQKz2EXq2N7oLgY_!!365978755.jpg", "【羊丽羊】澳洲进口羊皮毛一体狗狗玩偶羊皮毛一体家居饰品", "308.00","O1CN01cMz25p2EXq2PSY1ot_!!365978755.jpg,O1CN01uV6gb02EXq2PSXxfK_!!365978755.jpg,O1CN012Yo1ae2EXq2Qh04gZ_!!365978755.jpg,O1CN01yDfp242EXq2QVHsMu_!!365978755.jpg,O1CN01cocITD2EXq2QDxFfS_!!365978755.jpg,O1CN01KenqeP2EXq2QDxFfw_!!365978755.jpg,O1CN01IN8h5h2EXq2OhLlLx_!!365978755.jpg"
+);
+#插入数据
+INSERT INTO details VALUES(
+    null,13, "O1CN01opDmiF2EXq2QhdsmD_!!365978755.jpg,O1CN01ddUHyR2EXq2OAsnja_!!365978755.jpg,O1CN015L9IqW2EXq2QhcfxS_!!365978755.jpg,O1CN01ixtPGg2EXq2OTcIH6_!!365978755.jpg,O1CN01ebw2MO2EXq2MW9g8l_!!365978755.jpg,O1CN01opDmiF2EXq2QhdsmD_!!365978755.jpg", "【羊丽羊】澳洲羊皮毛一体玩偶趴趴狗玩偶公仔羊皮毛一体泰迪狗", "348.00","O1CN01kXgD9w2EXq2PT9QIP_!!365978755.jpg,O1CN0196pI2n2EXq2QhgyE2_!!365978755.jpg,O1CN01CxnAbM2EXq2OAx5xF_!!365978755.jpg,O1CN01OEKL1A2EXq2QEYqiH_!!365978755.jpg,O1CN01wC4efB2EXq2N8ScuC_!!365978755.jpg,O1CN01EH3a7J2EXq2Oo02gT_!!365978755.jpg,O1CN01COFqVd2EXq2PpycnR_!!365978755.jpg"
+);
+#插入数据
+INSERT INTO details VALUES(
+    null,14, "O1CN012FHe7P2EXq2OAbww1_!!365978755.jpg,O1CN01ab9NEG2EXq2OTJIYM_!!365978755.jpg,O1CN012HnwA32EXq2N88HoQ_!!365978755.jpg,O1CN01bPzghU2EXq2OniNro_!!365978755.jpg,O1CN01yhbXqe2EXq2OAckno_!!365978755.jpg,O1CN012FHe7P2EXq2OAbww1_!!365978755.jpg", "【羊丽羊】澳洲羊毛一体玩偶狗狗纯羊毛玩偶公仔皮毛一体家居饰品", "318.00","O1CN01NiuEDZ2EXq2OAcHba_!!365978755.jpg,O1CN01unoXdd2EXq2IByhsF_!!365978755.jpg,O1CN017q59UQ2EXq2QVa4T3_!!365978755.jpg,O1CN01L730g12EXq2Ohdl1k_!!365978755.jpg,O1CN01d3Thwu2EXq2Ov6lKl_!!365978755.jpg,O1CN01C9OcNm2EXq2PDCbZ6_!!365978755.jpg,O1CN01scoRqe2EXq2MVpo93_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,15, "O1CN012EXq0rDdGCRM1SN_!!365978755.jpg,TB2NhIcaf6H8KJjSspmXXb2WXXa_!!365978755.jpg,O1CN012EXq0oli8480VaU_!!365978755.jpg,O1CN012EXq0rDQN9qUaHW_!!365978755.jpg,TB2NhIcaf6H8KJjSspmXXb2WXXa_!!365978755.jpg,O1CN012EXq0rDdGCRM1SN_!!365978755.jpg", "【羊丽羊】澳洲羊毛一体玩偶羊驼纯羊毛玩偶公仔皮毛一体家居饰品", "498.00","O1CN012EXq1cprJW1TJOE_!!365978755.jpg,O1CN012EXq1dpXtu1eDGL_!!365978755.jpg,O1CN012EXq1dOjqoAQxLk_!!365978755.jpg,O1CN012EXq1gCNV17MptX_!!365978755.jpg,O1CN012EXq1fWrx18BT0q_!!365978755.jpg,O1CN012EXq1foBFAst2hd_!!365978755.jpg,O1CN012EXq1esHHNdC0jI_!!365978755.jpg,O1CN012EXq1fBTh3ItMHa_!!365978755.jpg,O1CN012EXq1exJ8T4lR0c_!!365978755.jpg,O1CN012EXq1e1L0dWdeZ2_!!365978755.jpg,O1CN012EXq1dni7QBXSqe_!!365978755.jpg,O1CN012EXq1exJL5PPzXM_!!365978755.jpg,O1CN012EXq1fYIWQg4RwZ_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,16, "O1CN012EXq0sAkiXzCjjM_!!365978755.jpg,O1CN012EXq0rZMpVuMaiL_!!365978755.jpg,O1CN012EXq0sL0EA84x2l_!!365978755.jpg,O1CN012EXq0rnvjhSOaea_!!365978755.jpg,O1CN012EXq0rZMpVuMaiL_!!365978755.jpg,O1CN012EXq0sAkiXzCjjM_!!365978755.jpg", "【羊丽羊】澳洲羊毛一体玩偶羊驼纯羊毛玩偶公仔皮毛一体家居饰品", "138.00","O1CN012EXq0y1PhvLDb9x_!!365978755.jpg,O1CN012EXq0woRI4syYM6_!!365978755.jpg,O1CN012EXq0w2h3ikbUMc_!!365978755.jpg,O1CN012EXq0xFmRPCOQKn_!!365978755.jpg,O1CN012EXq0rkbaRkP1NT_!!365978755.jpg,O1CN012EXq0wNQoiaNUoW_!!365978755.jpg,O1CN012EXq0rkd40fLjCN_!!365978755.jpg,O1CN012EXq0yKCY5NQtJH_!!365978755.jpg,O1CN012EXq0z6xUmNWJEA_!!365978755.jpg,O1CN012EXq0xFqbMqgNfF_!!365978755.jpg,O1CN012EXq0rkeCwNYKGQ_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,17, "O1CN01OVyjer2EXq22HaIIT_!!365978755.jpg_400x400.jpg,TB2lqzSeAfb_uJjSsD4XXaqiFXa_!!365978755.jpg,TB2Lbx0oJfJ8KJjy0FeXXXKEXXa_!!365978755.jpg,TB2wcownkfb_uJjSsrbXXb6bVXa_!!365978755.jpg,TB2Cz6hoSfD8KJjSszhXXbIJFXa_!!365978755.jpg,O1CN01OVyjer2EXq22HaIIT_!!365978755.jpg", "泰迪熊毛绒玩具抱抱熊公仔小号送女友真皮毛玩偶生日儿童节礼物女", "266.00","TB2oYukoIrI8KJjy0FhXXbfnpXa_!!365978755.jpg,TB2vVf9eAfb_uJkHFqDXXXVIVXa_!!365978755.jpg,TB2WJvVeAfb_uJkSmLyXXcxoXXa_!!365978755.jpg,TB2BXy3oNPI8KJjSspoXXX6MFXa_!!365978755.jpg,TB2OvqIoNrI8KJjy0FpXXb5hVXa_!!365978755.jpg,TB2VPNEftHO8KJjSZFHXXbWJFXa_!!365978755.jpg,TB2XjZvfhk98KJjSZFoXXXS6pXa_!!365978755.jpg,TB2_gdZoTTI8KJjSsphXXcFppXa_!!365978755.jpg,TB2lSbPfffM8KJjSZPfXXbklXXa_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,18, "O1CN012EXq0reDkXeUcHn_!!365978755.jpg,O1CN012EXq0qJiU4BrZB2_!!365978755.jpg,O1CN012EXq0reDkXeUcHn_!!365978755.jpg,O1CN012EXq0qJiU4BrZB2_!!365978755.jpg,O1CN012EXq0qJiU4BrZB2_!!365978755.jpg,O1CN012EXq0reDkXeUcHn_!!365978755.jpg", " 澳洲羊皮抱枕羊毛沙发靠垫高档短羊毛含芯皮毛一体长卷毛抱枕", "238.00","TB2koLgocnI8KJjSspeXXcwIpXa_!!365978755.jpg,TB2NkJDl5qAXuNjy1XdXXaYcVXa_!!365978755.jpg,TB2Y74Dl5qAXuNjy1XdXXaYcVXa_!!365978755.jpg,TB2KV1FohTI8KJjSspiXXbM4FXa_!!365978755.jpg,TB2nYcionvI8KJjSspjXXcgjXXa_!!365978755.jpg,TB2sEYYogfH8KJjy1zcXXcTzpXa_!!365978755.jpg,TB2Tj5kolfH8KJjy1XbXXbLdXXa_!!365978755.jpg,TB2VZAQm63z9KJjy0FmXXXiwXXa_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,19, "O1CN012EXq0zv5CanWx0I_!!365978755.jpg,O1CN012EXq0zH08jReSkY_!!365978755.jpg,O1CN012EXq0zGzGb0CrmH_!!365978755.jpg,O1CN012EXq0zv5Oye3GYr_!!365978755.jpg,O1CN012EXq0zGxr9Z9Ngb_!!365978755.jpg,O1CN012EXq0zv5CanWx0I_!!365978755.jpg", " 澳洲羊皮抱枕羊毛沙发靠垫高档短羊毛含芯皮毛一体卡通抱枕", "238.00","TB2pa1KfXLM8KJjSZFBXXXJHVXa_!!365978755.jpg,TB2rYMnonnI8KJjy0FfXXcdoVXa_!!365978755.jpg,TB2odinfaLN8KJjSZFvXXXW8VXa_!!365978755.jpg,TB24tHyolDH8KJjSspnXXbNAVXa_!!365978755.jpg,TB2HCjCogvD8KJjy0FlXXagBFXa_!!365978755.jpg,TB2hE5BomYH8KJjSspdXXcRgVXa_!!365978755.jpg,TB250InonnI8KJjy0FfXXcdoVXa_!!365978755.jpg,TB2xnuholfH8KJjy1XbXXbLdXXa_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,20, "O1CN012EXq0r9dVoC7oG7_!!365978755.jpg_400x400.jpg,O1CN012EXq0ruifDCdcL2_!!365978755.jpg,O1CN012EXq0raI2i19QED_!!365978755.jpg,O1CN012EXq0sgmdm1I4TS_!!365978755.jpg,O1CN012EXq0raGEQYeWLx_!!365978755.jpg,O1CN012EXq0r9dVoC7oG7_!!365978755.jpg", "澳洲羊皮抱枕羊毛沙发靠垫高档短羊毛含芯皮毛一体花卉图案抱枕", "238.00","TB2MGmQodzJ8KJjSspkXXbF7VXa_!!365978755.jpg,TB2ofm5onnI8KJjSszbXXb4KFXa_!!365978755.jpg,TB2eKYAolDH8KJjSspnXXbNAVXa_!!365978755.jpg,TB28u_AolDH8KJjSspnXXbNAVXa_!!365978755.jpg,TB24J9EohTI8KJjSspiXXbM4FXa_!!365978755.jpg,TB2DqknobYI8KJjy0FaXXbAiVXa_!!365978755.jpg,TB2v2.honvI8KJjSspjXXcgjXXa_!!365978755.jpg,TB2t34wm7fb_uJjSsrbXXb6bVXa_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,21, "O1CN012EXq0rqVDcjMWiy_!!365978755.jpg,O1CN012EXq0rRXFLYnXrJ_!!365978755.jpg,O1CN012EXq0rZkOkeIzhr_!!365978755.jpg,O1CN012EXq0q5BFvkLWRE_!!365978755.jpg,O1CN012EXq0qVMVHDUGVc_!!365978755.jpg,O1CN012EXq0rqVDcjMWiy_!!365978755.jpg", "澳洲羊皮抱枕羊毛皮沙发靠垫皮毛一体抱枕短羊毛含芯抱枕拼色靠垫", "238.00","TB2v2KoXbuWBuNjSszgXXb8jVXa_!!365978755.jpg,TB2XJWrXeGSBuNjSspbXXciipXa_!!365978755.jpg,TB2O8eoXXGWBuNjy0FbXXb4sXXa_!!365978755.jpg,TB2M5KoXkSWBuNjSszdXXbeSpXa_!!365978755.jpg,TB29dT9XmBYBeNjy0FeXXbnmFXa_!!365978755.jpg,TB2Jeb_XmtYBeNjSspaXXaOOFXa_!!365978755.jpg,TB2LO9oXXmWBuNjSspdXXbugXXa_!!365978755.jpg,TB2HkKqXf9TBuNjy1zbXXXpepXa_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,22, "O1CN01M8oZRb2EXq6X0teTB_!!365978755.jpg_400x400.jpg,O1CN01ty9xOK2EXq6X0dkIP_!!365978755.jpg,O1CN013ISqp02EXq6Wch7xL_!!365978755.jpg,O1CN01IzbBnB2EXq6ZWquMM_!!365978755.jpg,O1CN01kpHCHV2EXq6YGzGXZ_!!365978755.jpg,O1CN01M8oZRb2EXq6X0teTB_!!365978755.jpg_400x400.jpg", "羊丽羊欧式羊毛抱枕沙发抱枕靠垫羊毛靠垫抱枕皮毛一体长毛抱枕", "298.00","O1CN012EXq1fWGE2sUZm3_!!365978755.jpg,O1CN012EXq1fWGczZpUYX_!!365978755.jpg,O1CN012EXq1esaLP26sJI_!!365978755.jpg,O1CN012EXq1cqCjLCAYzX_!!365978755.jpg,O1CN012EXq1eepOchxy8I_!!365978755.jpg,O1CN012EXq1fCcLZnpVFS_!!365978755.jpg,O1CN012EXq1cqC3qI3JPI_!!365978755.jpg,O1CN012EXq1fBlgXT8YNA_!!365978755.jpg,O1CN012EXq1exJ8T4lR0c_!!365978755.jpg,O1CN012EXq1e1L0dWdeZ2_!!365978755.jpg,O1CN012EXq1dni7QBXSqe_!!365978755.jpg,O1CN012EXq1exJL5PPzXM_!!365978755.jpg,O1CN012EXq1fYIWQg4RwZ_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,23, "O1CN012EXq0qph7Pa959y_!!365978755.jpg_400x400.jpg,O1CN012EXq0rAF7gluisj_!!365978755.jpg,O1CN012EXq0qph7Pa959y_!!365978755.jpg_400x400.jpg,O1CN012EXq0rAF7gluisj_!!365978755.jpg,O1CN012EXq0rAF7gluisj_!!365978755.jpg,O1CN012EXq0qph7Pa959y_!!365978755.jpg_400x400.jpg", "【羊丽羊】澳洲羊皮抱枕羊毛沙发靠垫高档短羊毛含芯皮毛抱枕一体", "268.00","O1CN012EXq1bxjCMMElRu_!!365978755.jpg,O1CN012EXq1e4BEzU9hhZ_!!365978755.jpg,O1CN012EXq1ednVFQJ8YO_!!365978755.jpg,O1CN012EXq1eeSNguyvNE_!!365978755.jpg,O1CN012EXq1fk0qvkPE3U_!!365978755.jpg,O1CN012EXq1e4C30J5TSG_!!365978755.jpg,O1CN012EXq1cWMd7yemYo_!!365978755.jpg,O1CN012EXq1eIuWUDVT95_!!365978755.jpg,O1CN012EXq1dzj78FMRv2_!!365978755.jpg,O1CN012EXq1fJLvne5D7d_!!365978755.jpg,O1CN012EXq1eIW9RPxDdB_!!365978755.jpg,O1CN012EXq1fWMxUCOoVg_!!365978755.jpg,O1CN012EXq1e3o0zfw9iE_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,24, "O1CN012EXq0ywAKobazva_!!365978755.jpg,O1CN012EXq0rZ5pWhuJsy_!!365978755.jpg,O1CN012EXq0ywAKobazva_!!365978755.jpg,O1CN012EXq0rZ5pWhuJsy_!!365978755.jpg,O1CN012EXq0ywAKobazva_!!365978755.jpg", "【羊丽羊】澳洲羊皮抱枕羊毛沙发靠垫高档短羊毛含芯皮毛一体抱枕", "268.00","O1CN012EXq1edKu44ja95_!!365978755.jpg,O1CN012EXq1dzDIEin6VZ_!!365978755.jpg,O1CN012EXq1fJKmtHvfPY_!!365978755.jpg,O1CN012EXq1cVuu9qLbmc_!!365978755.jpg,O1CN012EXq1XjGUjhLuWd_!!365978755.jpg,O1CN012EXq1fjWuc1KsDk_!!365978755.jpg,O1CN012EXq1dRMC5ilpYP_!!365978755.jpg,O1CN012EXq1eJBP5utede_!!365978755.jpg,O1CN012EXq1eJBKwrfVvB_!!365978755.jpg,O1CN012EXq1fJLvne5D7d_!!365978755.jpg,O1CN012EXq1eIW9RPxDdB_!!365978755.jpg,O1CN012EXq1fWMxUCOoVg_!!365978755.jpg,O1CN012EXq1e3o0zfw9iE_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,25, "O1CN012EXq0yPwoJ46u3o_!!365978755.jpg_400x400.jpg,O1CN012EXq0rARfJCwK9p_!!365978755.jpg,O1CN012EXq0yPwoJ46u3o_!!365978755.jpg_400x400.jpg,O1CN012EXq0rARfJCwK9p_!!365978755.jpg,O1CN012EXq0yPwoJ46u3o_!!365978755.jpg_400x400.jpg", "【羊丽羊】澳洲羊皮抱枕羊毛沙发靠垫高档短羊毛含芯皮毛一体抱枕", "268.00","O1CN012EXq1dSk3mHLQ6V_!!365978755.jpg,O1CN012EXq1e5AfcJ2NwF_!!365978755.jpg,O1CN012EXq1fl0cIwstWr_!!365978755.jpg,O1CN012EXq1fXhX7FLXfT_!!365978755.jpg,O1CN012EXq1XkcokRbkhQ_!!365978755.jpg,O1CN012EXq1eertiZXivn_!!365978755.jpg,O1CN012EXq1fKlsMykVmf_!!365978755.jpg,O1CN012EXq1dn2pi1tb0L_!!365978755.jpg,O1CN012EXq1dSngWENFW4_!!365978755.jpg,O1CN012EXq1fJLvne5D7d_!!365978755.jpg,O1CN012EXq1eIW9RPxDdB_!!365978755.jpg,O1CN012EXq1fWMxUCOoVg_!!365978755.jpg,O1CN012EXq1e3o0zfw9iE_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,26, "O1CN012EXq0xxOo0TXsKc_!!365978755.jpg,O1CN012EXq0lLKvSZr2mv_!!365978755.jpg,O1CN012EXq0xxOo0TXsKc_!!365978755.jpg,O1CN012EXq0lLKvSZr2mv_!!365978755.jpg,O1CN012EXq0xxOo0TXsKc_!!365978755.jpg", "【羊丽羊】澳洲羊皮抱枕羊毛沙发靠垫高档短羊毛含芯皮毛一体抱枕", "268.00","O1CN012EXq1f8E5ZgvO0L_!!365978755.jpg,O1CN012EXq1ebBl9rYwwh_!!365978755.jpg,O1CN012EXq1ebChQ7Ihp8_!!365978755.jpg,O1CN012EXq1gM2wZR8vEr_!!365978755.jpg,O1CN012EXq1f934Uhlhc3_!!365978755.jpg,O1CN012EXq1gZNZkkodWC_!!365978755.jpg,O1CN012EXq1eH58TXGo3V_!!365978755.jpg,O1CN012EXq1fSnw0OnwjF_!!365978755.jpg,O1CN012EXq1fTfhiKA2rZ_!!365978755.jpg,O1CN012EXq1fJLvne5D7d_!!365978755.jpg,O1CN012EXq1eIW9RPxDdB_!!365978755.jpg,O1CN012EXq1fWMxUCOoVg_!!365978755.jpg,O1CN012EXq1e3o0zfw9iE_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,27, "O1CN01GMAegH2EXq6n4L3j8_!!365978755.jpg,O1CN01e19lsD2EXq6tG1hs9_!!365978755.jpg,O1CN01wHzTL72EXq6o0fFvr_!!365978755.jpg,O1CN013cUNON2EXq6qDUmkL_!!365978755.jpg,O1CN01rucYHs2EXq6iUKmam_!!365978755.jpg", "澳洲进口羊毛绒地毯地垫沙发垫羊皮毛一体坐垫卧室地毯飘窗垫", "1380.00","O1CN01nHFdrK2EXq6n4O9Ia_!!365978755.jpg,O1CN01MzlVHq2EXq6thBZgy_!!365978755.jpg,O1CN01lesEom2EXq6rOMGHX_!!365978755.jpg,O1CN01fBfpVX2EXq6qBqSxw_!!365978755.jpg,O1CN018kWJci2EXq6oDxGmb_!!365978755.jpg,O1CN01HzFrLa2EXq6iUOCyG_!!365978755.jpg,O1CN01VGJkQC2EXq6pkwAiB_!!365978755.jpg,O1CN01jLrHcH2EXq6rOMGId_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,28, "O1CN01M3ugKW2EXq6sBKDwo_!!365978755.jpg,O1CN01kQS9dY2EXq6q4EytR_!!365978755.jpg,O1CN01UouqNy2EXq6pxQ5dd_!!365978755.jpg,O1CN01KImYML2EXq6rGvn12_!!365978755.jpg,O1CN01guNYRX2EXq6sBLQlq_!!365978755.jpg", "【羊丽羊】澳洲进口羊皮毛一体卧室客厅冬季温暖瑜伽垫沙发垫地毯", "698.00","O1CN01hMHClP2EXq6o6GsjM_!!365978755.jpg,O1CN01MJKKqE2EXq6sg2Yoj_!!365978755.jpg,O1CN01FNvq342EXq6sBGOef_!!365978755.jpg,O1CN01O8K5jW2EXq6pMGmU1_!!365978755.jpg,O1CN01Vf7Zsj2EXq6sg4VOt_!!365978755.jpg,O1CN01b6e5Ui2EXq6nt0xA9_!!365978755.jpg,O1CN01vNCT1Z2EXq6nt1UNX_!!365978755.jpg,O1CN01ymPXEY2EXq6q4C1h6_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,29, "O1CN01mVnjcj2EXq6pPmIfu_!!365978755.jpg,O1CN01lUf7SU2EXq6pk2RZx_!!365978755.jpg,O1CN01qeoJUl2EXq6nfibwo_!!365978755.jpg,O1CN01cLXSuf2EXq6rxgWwY_!!365978755.jpg,O1CN01mVnjcj2EXq6pPmIfu_!!365978755.jpg", "【羊丽羊】澳洲进口羊皮毛一体卧室客厅门厅地垫冬季保暖防滑垫", "198.00","O1CN01vRjCSa2EXq6rEXE25_!!365978755.jpg,O1CN01wZMSPd2EXq6qXS8jT_!!365978755.jpg,O1CN01EAcVd62EXq6r3V7XZ_!!365978755.jpg,O1CN01WXjeFl2EXq6rEZN9Y_!!365978755.jpg,O1CN01fceOmt2EXq6nt8Gy9_!!365978755.jpg,O1CN012Wa4NY2EXq6mjP0xx_!!365978755.jpg,O1CN01oW0sf72EXq6sucjLP_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,30, "O1CN014aKmsc2EXq6qibtWU_!!365978755.jpg,O1CN01wFnhbK2EXq6iKMkMk_!!365978755.jpg,O1CN01O5xjNh2EXq6q1sUlQ_!!365978755.jpg,O1CN01fi4hnK2EXq6nqhgnN_!!365978755.jpg,O1CN014aKmsc2EXq6qibtWU_!!365978755.jpg", "澳洲羊毛绒地毯地垫沙发垫羊皮毛一体坐垫卧室客厅卷毛地毯瑜伽垫", "698.00","O1CN0155bf8T2EXq6pKAo9y_!!365978755.jpg,O1CN013LObDQ2EXq6q1z0bD_!!365978755.jpg,O1CN01NwF4OU2EXq6q3q4so_!!365978755.jpg,O1CN01xiazSD2EXq6pb8XaR_!!365978755.jpg,O1CN01IyhDtX2EXq6mubmzB_!!365978755.jpg,O1CN016njlTs2EXq6rElr1I_!!365978755.jpg,O1CN01AAtZPs2EXq6q20gTm_!!365978755.jpg,O1CN01kDOHJr2EXq6pb8TRm_!!365978755.jpg,O1CN01n5v2B42EXq6q2AtXP_!!365978755.jpg,O1CN01RAfy1L2EXq6msxg5E_!!365978755.jpg,O1CN01ZgwSQt2EXq6tVXDDZ_!!365978755.jpg,O1CN0181ipiE2EXq6iIsdb8_!!365978755.jpg,O1CN01VN5MOc2EXq6rOAFTh_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,31, "O1CN01tfWnMX2EXq6q1vaKL_!!365978755.jpg,O1CN019TLVtm2EXq6np46xb_!!365978755.jpg,O1CN01GTJL652EXq6qgrXV1_!!365978755.jpg,O1CN01hLUSkR2EXq6qgqw6b_!!365978755.jpg,O1CN01hLUSkR2EXq6qgqw6b_!!365978755.jpg,O1CN01tfWnMX2EXq6q1vaKL_!!365978755.jpg", "【羊丽羊】澳洲进口羊毛客厅卧室榻榻米垫床垫纯羊皮毛一体茶几垫", "2980.00","O1CN01maknay2EXq6pIHSSA_!!365978755.jpg,O1CN01GdD3TY2EXq6q1w7qe_!!365978755.jpg,O1CN01PDEMiX2EXq6pIGS6q_!!365978755.jpg,O1CN01Q6boij2EXq6iIhUbw_!!365978755.jpg,O1CN015xjMYR2EXq6s7DyzU_!!365978755.jpg,O1CN01ZDIDit2EXq6s7ByJo_!!365978755.jpg,O1CN01UFtq9J2EXq6pIIWz4_!!365978755.jpg,O1CN01oxggij2EXq6pIH7gc_!!365978755.jpg,O1CN01n5v2B42EXq6q2AtXP_!!365978755.jpg,O1CN01RAfy1L2EXq6msxg5E_!!365978755.jpg,O1CN01ZgwSQt2EXq6tVXDDZ_!!365978755.jpg,O1CN0181ipiE2EXq6iIsdb8_!!365978755.jpg,O1CN01VN5MOc2EXq6rOAFTh_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,32, "O1CN01PtI1Yi2EXq6n9lL2N_!!365978755.jpg,O1CN016SULwW2EXq6mDQwRI_!!365978755.jpg,O1CN010tytTs2EXq6q1HqVG_!!365978755.jpg,O1CN01zBgbQZ2EXq6spDrzt_!!365978755.jpg,O1CN01ZGyPQq2EXq6qiHxlK_!!365978755.jpg,O1CN01PtI1Yi2EXq6n9lL2N_!!365978755.jpg", "澳洲进口羊毛圆形地毯加厚客厅床边毯茶几垫地毯皮毛一体地毯", "2960.00","O1CN01hKimbN2EXq6othRZH_!!365978755.jpg,O1CN01b994aE2EXq6q1OMI0_!!365978755.jpg,O1CN010L1mkM2EXq6rRc0px_!!365978755.jpg,O1CN01ENnsGW2EXq6nNMUE0_!!365978755.jpg,O1CN01fE0k042EXq6pELU9p_!!365978755.jpg,O1CN015NT9n02EXq6rRdYOe_!!365978755.jpg,O1CN01hY8VrO2EXq6pKdPoQ_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,33, "O1CN012EXq0noW4LQoig4_!!365978755.jpg,O1CN012EXq0p6S955WWK5_!!365978755.jpg,O1CN012EXq0o0ZNYOVePn_!!365978755.jpg,O1CN012EXq0oDA6YjlQia_!!365978755.jpg,O1CN012EXq0oj3tuwAkU8_!!365978755.jpg,O1CN012EXq0noW4LQoig4_!!365978755.jpg", "冬季羊毛椅垫纯羊毛坐垫皮毛一体加厚防滑电脑椅子屁股垫", "1380.00","TB2IucaogfH8KJjy1zcXXcTzpXa_!!365978755.jpg,TB2Un.uomfD8KJjSszhXXbIJFXa_!!365978755.jpg,TB2XUcFoh6I8KJjy0FgXXXXzVXa_!!365978755.jpg,TB2ofL.ohPI8KJjSspoXXX6MFXa_!!365978755.jpg,TB2GZFSl5qAXuNjy1XdXXaYcVXa_!!365978755.jpg,TB27U9yolfH8KJjy1XbXXbLdXXa_!!365978755.jpg,TB2sICQo4PI8KJjSspoXXX6MFXa_!!365978755.jpg,TB2PXOTomYH8KJjSspdXXcRgVXa_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,34, "O1CN012EXq0okXblKe6Mv_!!365978755.jpg,O1CN012EXq0oCITCRn3c3_!!365978755.jpg,O1CN012EXq0oxBk6qWy3x_!!365978755.jpg,O1CN012EXq0nlDISLGTH4_!!365978755.jpg,O1CN012EXq0npz6QPhuzF_!!365978755.jpg,O1CN012EXq0okXblKe6Mv_!!365978755.jpg", "新款纯羊毛坐垫冬季保暖皮毛一体羊剪绒无靠背羊毛座垫", "158.00","TB2l6KDXeySBuNjy1zdXXXPxFXa_!!365978755.jpg,TB2ThNifRfM8KJjSZFrXXXSdXXa_!!365978755.jpg,TB2OxFhfGLN8KJjSZFmXXcQ6XXa_!!365978755.jpg,TB2hUBGXhuTBuNkHFNRXXc9qpXa_!!365978755.jpg,TB28qWAXb1YBuNjSszeXXablFXa_!!365978755.jpg,TB2Gb1DXeSSBuNjy0FlXXbBpVXa_!!365978755.jpg,TB20TW_ffQs8KJjSZFEXXc9RpXa_!!365978755.jpg,TB2hc4sfJHO8KJjSZFHXXbWJFXa_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,35, "O1CN01CHvHRV2EXq6og681o_!!365978755.jpg,O1CN011NBYs72EXq6kREThh_!!365978755.jpg,O1CN01C00r952EXq6mbYmn2_!!365978755.jpg,O1CN01s9so1J2EXq6ofysW0_!!365978755.jpg,O1CN01ZEMa4W2EXq6q4GlMW_!!365978755.jpg,O1CN01CHvHRV2EXq6og681o_!!365978755.jpg", "欧式高档客厅卧室沙发垫椅垫飘窗垫 整张羊皮毛一体滩羊毛皮形", "298.00","O1CN011Nonp32EXq6mVhRdE_!!365978755.jpg,O1CN01HN61mW2EXq6jUFnZ1_!!365978755.jpg,O1CN01YCyKc52EXq6etM8bJ_!!365978755.jpg,O1CN01KgOXoc2EXq6kRLzwn_!!365978755.jpg,O1CN01zkrzQC2EXq6nyAcGs_!!365978755.jpg,O1CN01gGcFjQ2EXq6no1IKk_!!365978755.jpg,O1CN01jbJbdX2EXq6no0M6l_!!365978755.jpg,O1CN01yp94kr2EXq6mViNpg_!!365978755.jpg,O1CN0129jLGh2EXq6jUG031_!!365978755.jpg,O1CN01X7WttA2EXq6mbzAov_!!365978755.jpg,O1CN01CjjByW2EXq6mB9ys6_!!365978755.jpg,O1CN011cgBdJ2EXq6kRLb2s_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,36, "O1CN012EXq0qyomdzhpFB_!!365978755.jpg,TB2RJ51XeuSBuNjSsziXXbq8pXa_!!365978755.jpg,TB2BKu1XeuSBuNjSsziXXbq8pXa_!!365978755.jpg,TB2CfK0Xf5TBuNjSspmXXaDRVXa_!!365978755.jpg,TB2wYm1XeSSBuNjy0FlXXbBpVXa_!!365978755.jpg,O1CN012EXq0qyomdzhpFB_!!365978755.jpg", "长方形瑜伽垫地毯澳洲进口进口材料客厅卧室地毯", "898.00","O1CN012EXq0tYA0Bn1sZd_!!365978755.jpg,O1CN012EXq0sbmEVkcqhw_!!365978755.jpg,O1CN012EXq0u9GyNu8hWy_!!365978755.jpg,O1CN012EXq0utd5Ar1i6v_!!365978755.jpg,O1CN012EXq0tXuh3rN45v_!!365978755.jpg,O1CN012EXq0nZ7J1PYOSE_!!365978755.jpg,O1CN012EXq0t3krKv2iMA_!!365978755.jpg,O1CN012EXq0sBDQDfXr8E_!!365978755.jpg,O1CN012EXq0sbo79Qy5cf_!!365978755.jpg,O1CN012EXq0twkbmVoRI3_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,37, "TB2FqGZXf1TBuNjy0FjXXajyXXa_!!365978755.jpg,TB2BL7EXnlYBeNjSszcXXbwhFXa_!!365978755.jpg,TB2gD7EXmtYBeNjSspkXXbU8VXa_!!365978755.jpg,TB2_syWXb5YBuNjSspoXXbeNFXa_!!365978755.jpg,TB2OwiWXhGYBuNjy0FnXXX5lpXa_!!365978755.jpg,TB2FqGZXf1TBuNjy0FjXXajyXXa_!!365978755.jpg", "真羊毛地毯瑜伽垫长方形沙发垫澳洲进口羊丽羊皮毛一体毯", "1380.00","TB2KxGWXamWBuNjy1XaXXXCbXXa_!!365978755.jpg,TB2ahSWXamWBuNjy1XaXXXCbXXa_!!365978755.jpg,TB2OIe0XeuSBuNjSsziXXbq8pXa_!!365978755.jpg,TB2e15WXXGWBuNjy0FbXXb4sXXa_!!365978755.jpg,TB2iqiVXbSYBuNjSspiXXXNzpXa_!!365978755.jpg,TB2ilGVXh1YBuNjy1zcXXbNcXXa_!!365978755.jpg,TB2rBOVXh1YBuNjy1zcXXbNcXXa_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,38, "TB2VB9OqTqWBKNjSZFxXXcpLpXa_!!365978755.jpg,O1CN012EXq0pxZJr2kPX7_!!365978755.jpg,O1CN012EXq0rILQxHCG92_!!365978755.jpg,TB25OOWXXuWBuNjSspnXXX1NVXa_!!365978755.jpg,O1CN012EXq0pfXrbweLEE_!!365978755.jpg,TB2VB9OqTqWBKNjSZFxXXcpLpXa_!!365978755.jpg", "【羊丽羊】澳洲羊皮毛一体地毯卧室瑜伽垫进口地毯", "768.00","O1CN012EXq10eOeFd1SXd_!!365978755.jpg,O1CN012EXq0sbmEVkcqhw_!!365978755.jpg,O1CN012EXq0uGkCMtkkxH_!!365978755.jpg,O1CN012EXq0u4QarIrm37_!!365978755.jpg,O1CN012EXq0tujZGa4FjI_!!365978755.jpg,O1CN012EXq0u4QvisfaK9_!!365978755.jpg,O1CN012EXq0sjGbMtQmU2_!!365978755.jpg,O1CN012EXq10ULAaciMrp_!!365978755.jpg,O1CN012EXq0tnBDzbVoSk_!!365978755.jpg,O1CN012EXq0zgc3IX9CyP_!!365978755.jpg,O1CN012EXq0tumBZrihqg_!!365978755.jpg,O1CN012EXq0uogCuyiCPy_!!365978755.jpg,O1CN012EXq0uofTEiOS0t_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,39, "O1CN012EXq0pyYsTgvzCT_!!365978755.jpg,TB24KVkXnmWBKNjSZFBXXXxUFXa_!!365978755.jpg,O1CN012EXq0qsRPM2zDlu_!!365978755.jpg,TB2Wu5RXbGYBuNjy0FoXXciBFXa_!!365978755.jpg,O1CN012EXq0rbakSlQovp_!!365978755.jpg,O1CN012EXq0pyYsTgvzCT_!!365978755.jpg", "【羊丽羊】澳洲进口羊皮毛一体瑜伽垫卧室客厅真羊毛地毯", "698.00","O1CN012EXq0trHCEan2t7_!!365978755.jpg,O1CN012EXq0sbmEVkcqhw_!!365978755.jpg,O1CN012EXq0tydBagEhOS_!!365978755.jpg,O1CN012EXq0sMqRfpO1Tq_!!365978755.jpg,O1CN012EXq0uKmbyIcPzt_!!365978755.jpg,O1CN012EXq0snGGJQ0jwn_!!365978755.jpg,O1CN013VZjCt2EXq6iLdd4c_!!365978755.jpg,O1CN012EXq0tXU2RqkeiE_!!365978755.jpg,O1CN012EXq0vG6KD4b2c3_!!365978755.jpg,O1CN012EXq0tjhmzWgycR_!!365978755.jpg,O1CN012EXq0trL5a0GGgl_!!365978755.jpg,O1CN012EXq0uogCuyiCPy_!!365978755.jpg,O1CN012EXq0uofTEiOS0t_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,40, "TB2XYVrg8fH8KJjy1XbXXbLdXXa_!!365978755.jpg,TB2VwV2gZnI8KJjSsziXXb8QpXa_!!365978755.jpg,TB2umukgY_I8KJjy1XaXXbsxpXa_!!365978755.jpg,TB2umukgY_I8KJjy1XaXXbsxpXa_!!365978755.jpg,TB27OvqeyqAXuNjy1XdXXaYcVXa_!!365978755.jpg,TB2XYVrg8fH8KJjy1XbXXbLdXXa_!!365978755.jpg", "澳洲羊皮毛一体圆形沙发垫加厚客厅床边毯茶几垫地毯皮毛一体坐垫", "126.00","TB2mvncocnI8KJjSspeXXcwIpXa_!!365978755.jpg,TB2ZUmfolfH8KJjy1XbXXbLdXXa_!!365978755.jpg,TB2qKQKocLJ8KJjy0FnXXcFDpXa_!!365978755.jpg,TB2bPO3of2H8KJjy0FcXXaDlFXa_!!365978755.jpg,TB2ZgYcocnI8KJjSspeXXcwIpXa_!!365978755.jpg,TB2G2PQof6H8KJjy0FjXXaXepXa_!!365978755.jpg,TB2WAaOoh6I8KJjSszfXXaZVXXa_!!365978755.jpg,TB2bBu3of2H8KJjy0FcXXaDlFXa_!!365978755.jpg,TB2Dq2logLD8KJjSszeXXaGRpXa_!!365978755.jpg,TB2VZ2mocjI8KJjSsppXXXbyVXa_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,41, "O1CN012EXq0qavJCyK8JK_!!365978755.jpg,O1CN012EXq0rhcpalzfig_!!365978755.jpg,TB2vNcvocLJ8KJjy0FnXXcFDpXa_!!365978755.jpg,TB2SsY0omfD8KJjSszhXXbIJFXa_!!365978755.jpg,O1CN012EXq0qBti64DKDa_!!365978755.jpg,O1CN012EXq0qavJCyK8JK_!!365978755.jpg", "澳洲纯羊毛欧式沙发垫套装皮毛一体沙发垫卧室客厅地毯瑜伽垫", "798.00","O1CN012EXq0slILLCzvpG_!!365978755.jpg,O1CN012EXq0sbmEVkcqhw_!!365978755.jpg,O1CN012EXq0vE1lVP5ddK_!!365978755.jpg,O1CN012EXq0twjEDiceyN_!!365978755.jpg,O1CN012EXq0twj5wCOgb5_!!365978755.jpg,O1CN012EXq0uqbuQt09xX_!!365978755.jpg,O1CN012EXq0uIpZMbJBms_!!365978755.jpg,O1CN012EXq0v3K0AmxkLT_!!365978755.jpg,O1CN012EXq0twlNN8DTmH_!!365978755.jpg,O1CN012EXq0uGollNLWzH_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,42, "O1CN012EXq10esTxhKGXM_!!365978755.jpg,O1CN012EXq11dVZuD6Jmw_!!365978755.jpg,TB2vNcvocLJ8KJjy0FnXXcFDpXa_!!365978755.jpg,O1CN012EXq10P50erCNei_!!365978755.jpg,O1CN012EXq11dTZCHIHQq_!!365978755.jpg,O1CN012EXq10esTxhKGXM_!!365978755.jpg", "新款纯羊毛地毯客厅卧室床边地毯羊皮毛一体毛绒地毯", "998.00","TB2bRohomfD8KJjSszhXXbIJFXa_!!365978755.jpg,TB2tvTColDH8KJjSspnXXbNAVXa_!!365978755.jpg,TB2oCbGogvD8KJjy0FlXXagBFXa_!!365978755.jpg,TB2bT_qogLD8KJjSszeXXaGRpXa_!!365978755.jpg,TB24unOolDH8KJjy1zeXXXjepXa_!!365978755.jpg,TB2sICQo4PI8KJjSspoXXX6MFXa_!!365978755.jpg,TB2sT5lolfH8KJjy1XbXXbLdXXa_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,43, "O1CN012EXq0p3Mh2Nxri7_!!365978755.jpg,O1CN012EXq0qp2TEkLmMq_!!365978755.jpg,O1CN012EXq0qozaOqP7Rt_!!365978755.jpg,O1CN012EXq0rkhQ5rcNG1_!!365978755.jpg,O1CN012EXq0rkiMNO2JSq_!!365978755.jpg,O1CN012EXq0p3Mh2Nxri7_!!365978755.jpg", "冬季羊毛家居坐垫毛垫短毛坐垫皮毛一体坐垫羊剪绒短毛绒坐垫", "258.00","TB2iqD3ohPI8KJjSspoXXX6MFXa_!!365978755.jpg,TB2wlBJl5qAXuNjy1XdXXaYcVXa_!!365978755.jpg,TB2PyYLogvD8KJjy0FlXXagBFXa_!!365978755.jpg,TB24HDJohrI8KJjy0FpXXb5hVXa_!!365978755.jpg,TB2TPyQflLN8KJjSZFpXXbZaVXa_!!365978755.jpg,TB2sICQo4PI8KJjSspoXXX6MFXa_!!365978755.jpg,TB2rRsuobYI8KJjy0FaXXbAiVXa_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,44, "O1CN012EXq0oOSjdIRyse_!!365978755.jpg,O1CN012EXq0oFHYSMaIIt_!!365978755.jpg,O1CN012EXq0nqhx1oQipF_!!365978755.jpg,TB2peS8onTI8KJjSsphXXcFppXa_!!365978755.jpg,O1CN012EXq0olHKKnQTIe_!!365978755.jpg,O1CN012EXq0oOSjdIRyse_!!365978755.jpg", "【羊丽羊】澳洲羊毛椅垫沙发坐垫皮毛一体方形垫子羊剪绒毛", "398.00","TB28hQhof6H8KJjSspmXXb2WXXa_!!365978755.jpg,TB2RdfqodrJ8KJjSspaXXXuKpXa_!!365978755.jpg,TB2Hb_rocnI8KJjSspeXXcwIpXa_!!365978755.jpg,TB2t32donnI8KJjSszbXXb4KFXa_!!365978755.jpg,TB2YJ_qodrJ8KJjSspaXXXuKpXa_!!365978755.jpg,TB2Tu2mom_I8KJjy0FoXXaFnVXa_!!365978755.jpg,TB2sICQo4PI8KJjSspoXXX6MFXa_!!365978755.jpg,TB2nVkromfD8KJjSszhXXbIJFXa_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,45, "O1CN012EXq10siTs9XPYC_!!365978755.jpg,O1CN012EXq11qFxFuAkI4_!!365978755.jpg,O1CN012EXq0zJo8CTaPZf_!!365978755.jpg,O1CN012EXq10OXVdf9eZ6_!!365978755.jpg,O1CN012EXq10OXmBevLhB_!!365978755.jpg,O1CN012EXq10siTs9XPYC_!!365978755.jpg", "【羊丽羊】新款澳洲羊皮毛一体方形纯色椅垫沙发垫飘窗垫", "118.00","TB2LlPJocbI8KJjy1zdXXbe1VXa_!!365978755.jpg,TB28Mgmob_I8KJjy1XaXXbsxpXa_!!365978755.jpg,TB2ig6uohHI8KJjy1zbXXaxdpXa_!!365978755.jpg,TB2fK2mocjI8KJjSsppXXXbyVXa_!!365978755.jpg,TB2JHzkognH8KJjSspcXXb3QFXa_!!365978755.jpg,TB2ccmzogvD8KJjSsplXXaIEFXa_!!365978755.jpg,TB2vwGAomYH8KJjSspdXXcRgVXa_!!365978755.jpg,TB2HArQof6H8KJjy0FjXXaXepXa_!!365978755.jpg,TB2NBKAohTI8KJjSspiXXbM4FXa_!!365978755.jpg,TB2eyuVodfJ8KJjy0FeXXXKEXXa_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,46, "O1CN012EXq0yP0nfbQrhi_!!365978755.jpg,O1CN012EXq0oonJLqf0wE_!!365978755.jpg,TB2WRNJcsbI8KJjy1zdXXbe1VXa_!!365978755.jpg,TB23YtzcDnI8KJjSszbXXb4KFXa_!!365978755.jpg,O1CN012EXq0oonJLqf0wE_!!365978755.jpg,O1CN012EXq0yP0nfbQrhi_!!365978755.jpg", "澳洲羊皮沙发坐垫羊毛坐垫纯羊毛坐垫沙发坐垫椅子垫椅垫冬季椅垫", "188.00","O1CN012EXq1exBGQVMSlY_!!365978755.jpg,O1CN012EXq1gPugKgk6qC_!!365978755.jpg,O1CN012EXq1fWUBnXH200_!!365978755.jpg,O1CN012EXq1ef1cLmoZ0u_!!365978755.jpg,O1CN012EXq1fC0JwMolpV_!!365978755.jpg,O1CN012EXq1gd25T67yHp_!!365978755.jpg,O1CN012EXq1eKqQV4aomA_!!365978755.jpg,O1CN012EXq1YcEMzGAZ93_!!365978755.jpg,O1CN012EXq1fXQG9CR4OW_!!365978755.jpg,O1CN012EXq1fokULWqt6P_!!365978755.jpg,O1CN012EXq1exJ8T4lR0c_!!365978755.jpg,O1CN012EXq1e1L0dWdeZ2_!!365978755.jpg,O1CN012EXq1dni7QBXSqe_!!365978755.jpg,O1CN012EXq1exJL5PPzXM_!!365978755.jpg,O1CN012EXq1fYIWQg4RwZ_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,47, "O1CN012EXq0nEQiuO4Uzh_!!365978755.jpg,O1CN012EXq0oTz7X3q32M_!!365978755.jpg,O1CN012EXq0p3WsdHKUWg_!!365978755.jpg,O1CN012EXq0pDwVy7Pjgh_!!365978755.jpg,O1CN012EXq0oTz7X3q32M_!!365978755.jpg,O1CN012EXq0nEQiuO4Uzh_!!365978755.jpg", "澳洲羊毛沙发垫羊毛椅垫毛绒坐垫短毛办公椅坐垫厚羊皮椅子垫", "238.00","TB2_eKFo_nI8KJjSszbXXb4KFXa_!!365978755.jpg,TB2R8dUo8fH8KJjy1XbXXbLdXXa_!!365978755.jpg,TB2RqHeo4rI8KJjy0FpXXb5hVXa_!!365978755.jpg,TB2SvuFo_nI8KJjSszbXXb4KFXa_!!365978755.jpg,TB2DHieo4TI8KJjSspiXXbM4FXa_!!365978755.jpg,TB2B8Cto_TI8KJjSsphXXcFppXa_!!365978755.jpg,TB2pZfLo0nJ8KJjSszdXXaxuFXa_!!365978755.jpg,TB24zeSoZnI8KJjSspeXXcwIpXa_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,48, "O1CN012EXq114BY9bD9XS_!!365978755.jpg,O1CN01h3QqjZ2EXq6p8lbsr_!!365978755.jpg,O1CN01BeyYmv2EXq6pvcw0k_!!365978755.jpg,TB2sSeWX0HO8KJjSZFtXXchfXXa_!!365978755.jpg,O1CN01IuW3cj2EXq6ono20D_!!365978755.jpg,O1CN012EXq114BY9bD9XS_!!365978755.jpg", "羊丽羊澳洲进口纯羊毛椅垫整张羊皮毛一体双拼自由皮形卧室床地毯", "998.00","O1CN012EXq1Yck7jxETrH_!!365978755.jpg,O1CN012EXq1efZS8K3v5h_!!365978755.jpg,O1CN012EXq1fCcNno0qzR_!!365978755.jpg,O1CN012EXq1gDUe4Pa7Gb_!!365978755.jpg,O1CN012EXq1fX3MuU1Bu5_!!365978755.jpg,O1CN012EXq1fDPl1EmEHr_!!365978755.jpg,O1CN012EXq1dqfBTMNskH_!!365978755.jpg,O1CN012EXq1exJ8T4lR0c_!!365978755.jpg，O1CN012EXq1e1L0dWdeZ2_!!365978755.jpg,O1CN012EXq1dni7QBXSqe_!!365978755.jpg,O1CN012EXq1exJL5PPzXM_!!365978755.jpg,O1CN012EXq1fYIWQg4RwZ_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,49, "O1CN012EXq12Jgzb6XuTI_!!365978755.jpg,O1CN012EXq111uu7BSc3R_!!365978755.jpg,TB25IVmXEo09KJjSZFDXXb9npXa_!!365978755.jpg,TB2oyrxXJHO8KJjSZFtXXchfXXa_!!365978755.jpg,TB24Cj5acrI8KJjy0FhXXbfnpXa_!!365978755.jpg,O1CN012EXq12Jgzb6XuTI_!!365978755.jpg", "【羊丽羊】澳洲羊皮毛坐垫椅垫沙发垫无染色自然花羊皮毛一体垫子", "498.00","O1CN012EXq11JErKfInNf_!!365978755.jpg,O1CN012EXq0zZ3EOf61tl_!!365978755.jpg,O1CN012EXq110qybpEBPP_!!365978755.jpg,O1CN012EXq12sDVtwBwRe_!!365978755.jpg,O1CN012EXq10Z7WdvdU5k_!!365978755.jpg,O1CN012EXq10Z8CK18b0T_!!365978755.jpg,O1CN012EXq12iAIdbLxXE_!!365978755.jpg,O1CN012EXq11VvCjxOHd0_!!365978755.jpg，O1CN012EXq10ZBYIkp4Wn_!!365978755.jpg,O1CN012EXq125MjA48r2P_!!365978755.jpg,O1CN012EXq0zN0lF2IysZ_!!365978755.jpg,"
+);
+INSERT INTO details VALUES(
+    null,49, "O1CN012EXq12Jgzb6XuTI_!!365978755.jpg,O1CN012EXq111uu7BSc3R_!!365978755.jpg,TB25IVmXEo09KJjSZFDXXb9npXa_!!365978755.jpg,TB2oyrxXJHO8KJjSZFtXXchfXXa_!!365978755.jpg,TB24Cj5acrI8KJjy0FhXXbfnpXa_!!365978755.jpg,O1CN012EXq12Jgzb6XuTI_!!365978755.jpg", "【羊丽羊】澳洲羊皮毛坐垫椅垫沙发垫无染色自然花羊皮毛一体垫子", "498.00","O1CN012EXq11JErKfInNf_!!365978755.jpg,O1CN012EXq0zZ3EOf61tl_!!365978755.jpg,O1CN012EXq110qybpEBPP_!!365978755.jpg,O1CN012EXq12sDVtwBwRe_!!365978755.jpg,O1CN012EXq10Z7WdvdU5k_!!365978755.jpg,O1CN012EXq10Z8CK18b0T_!!365978755.jpg,O1CN012EXq12iAIdbLxXE_!!365978755.jpg,O1CN012EXq11VvCjxOHd0_!!365978755.jpg，O1CN012EXq10ZBYIkp4Wn_!!365978755.jpg,O1CN012EXq125MjA48r2P_!!365978755.jpg,O1CN012EXq0zN0lF2IysZ_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,50, "O1CN012EXq0pxwzQeeFw6_!!365978755.jpg,O1CN012EXq0nyn5DH0MXI_!!365978755.jpg,O1CN012EXq0pxwzQeeFw6_!!365978755.jpg,O1CN012EXq0nyn5DH0MXI_!!365978755.jpg,O1CN012EXq0nyn5DH0MXI_!!365978755.jpg,O1CN012EXq0pxwzQeeFw6_!!365978755.jpg", "【羊丽羊】澳洲羊毛椅垫沙发坐垫皮毛一体方形垫子羊剪绒毛垫", "298.00","O1CN012EXq1f8T9drvU6I_!!365978755.jpg,O1CN012EXq1fT6BkHizhD_!!365978755.jpg,O1CN012EXq1fkQ5EWXWVd_!!365978755.jpg,O1CN012EXq1fT3m87ucsn_!!365978755.jpg,O1CN012EXq1cm7pj9zgSa_!!365978755.jpg,O1CN012EXq1dKzEIoYpXw_!!365978755.jpg,O1CN012EXq1dlqyFgW3Dw_!!365978755.jpg,O1CN012EXq1eGX1wbqsJn_!!365978755.jpg，O1CN012EXq1fJLvne5D7d_!!365978755.jpg,O1CN012EXq1eIW9RPxDdB_!!365978755.jpg,O1CN012EXq1fWMxUCOoVg_!!365978755.jpg,O1CN012EXq1e3o0zfw9iE_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,51, "O1CN012EXq0p2zBEDaqAS_!!365978755.jpg,O1CN012EXq0m2twtXXoAv_!!365978755.jpg,O1CN012EXq0hlu9J6YVGA_!!365978755.jpg,O1CN012EXq0m2twtXXoAv_!!365978755.jpg,O1CN012EXq0hlu9J6YVGA_!!365978755.jpg,O1CN012EXq0p2zBEDaqAS_!!365978755.jpg", "【羊丽羊】澳洲羊毛椅垫沙发坐垫皮毛一体方形垫子羊剪绒毛垫", "368.00","O1CN012EXq1ebeYfBesGN_!!365978755.jpg,O1CN012EXq1f9RF2Wu9li_!!365978755.jpg,O1CN012EXq1YYxDoltC4g_!!365978755.jpg,O1CN012EXq1dmniOdf9nx_!!365978755.jpg,O1CN012EXq1dLynAPTHsY_!!365978755.jpg,O1CN012EXq1gMX9gE2aVk_!!365978755.jpg,O1CN012EXq1gZmx7LU9Vx_!!365978755.jpg,O1CN012EXq1g9jp44nJGv_!!365978755.jpg，O1CN012EXq1fJLvne5D7d_!!365978755.jpg,O1CN012EXq1eIW9RPxDdB_!!365978755.jpg,O1CN012EXq1fWMxUCOoVg_!!365978755.jpg,O1CN012EXq1e3o0zfw9iE_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,52, "O1CN012EXq0mClDAUf3fa_!!365978755.jpg,O1CN012EXq0ogsQVqRAE1_!!365978755.jpg,O1CN012EXq0mClDAUf3fa_!!365978755.jpg,O1CN012EXq0ogsQVqRAE1_!!365978755.jpg,O1CN012EXq0ogsQVqRAE1_!!365978755.jpg,O1CN012EXq0mClDAUf3fa_!!365978755.jpg", "【羊丽羊】澳洲羊毛坐垫冬季保暖卡通熊大毯子纯羊皮毛一体地毯", "2580.00","O1CN012EXq1fnV0vmV95S_!!365978755.jpg,O1CN01oSAKdQ2EXq22qmVnS_!!365978755.jpg,O1CN012EXq1eJacQJnlo7_!!365978755.jpg,O1CN012EXq1erdrsrg7oa_!!365978755.jpg,O1CN012EXq1gOhh1NeEYU_!!365978755.jpg,O1CN012EXq1eJclZYhLHx_!!365978755.jpg,O1CN012EXq1gBmAj03vt4_!!365978755.jpg,O1CN012EXq1fVMRC7O1oK_!!365978755.jpg,O1CN012EXq1exJ8T4lR0c_!!365978755.jpg,O1CN012EXq1e1L0dWdeZ2_!!365978755.jpg,O1CN012EXq1dni7QBXSqe_!!365978755.jpg,O1CN012EXq1exJL5PPzXM_!!365978755.jpg,O1CN012EXq1fYIWQg4RwZ_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,53, "O1CN012EXq0oRqssV0qkY_!!365978755.jpg,O1CN012EXq0pdXjJyh98A_!!365978755.jpg,O1CN01eDLekp2EXq6qOese6_!!365978755.jpg,O1CN01c24XnN2EXq6pE0YYu_!!365978755.jpg,O1CN01NCz1g62EXq6oU9Cki_!!365978755.jpg,O1CN012EXq0oRqssV0qkY_!!365978755.jpg", "【羊丽羊】澳洲羊毛椅垫沙发坐垫皮毛一体方形垫子羊剪绒毛垫", "368.00","O1CN012EXq1crIXGryzoa_!!365978755.jpg,O1CN012EXq1Yd1FMOKwGe_!!365978755.jpg,O1CN012EXq1dQA48wC4M3_!!365978755.jpg,O1CN012EXq1efrmNhOxm6_!!365978755.jpg,O1CN012EXq1Yd2BeaplAb_!!365978755.jpg,O1CN012EXq1etkNfFFyQe_!!365978755.jpg,O1CN012EXq1crMEFp2NGR_!!365978755.jpg,O1CN012EXq1fJLvne5D7d_!!365978755.jpg,O1CN012EXq1eIW9RPxDdB_!!365978755.jpg,O1CN012EXq1fWMxUCOoVg_!!365978755.jpg,O1CN012EXq1e3o0zfw9iE_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,54, "O1CN012EXq0o2uncGYDyW_!!365978755.jpg,O1CN012EXq0olDI8YBnL3_!!365978755.jpg,O1CN012EXq0olDI8YBnL3_!!365978755.jpg,O1CN012EXq0olDI8YBnL3_!!365978755.jpg,O1CN012EXq0o2uncGYDyW_!!365978755.jpg,O1CN012EXq0o2uncGYDyW_!!365978755.jpg", "【羊丽羊】红木家具羊皮毛坐垫沙发垫办公椅垫餐椅垫方形垫", "298.00","O1CN012EXq1fAIeKovcRg_!!365978755.jpg,O1CN012EXq1gbLUUxmqbO_!!365978755.jpg,O1CN012EXq1fBAzTJ6cKF_!!365978755.jpg,O1CN012EXq1fn2DMMoObF_!!365978755.jpg,O1CN012EXq1eJ3nBUR9wM_!!365978755.jpg,O1CN012EXq1gOCbsnYuGJ_!!365978755.jpg,O1CN012EXq1YaUxP1E87t_!!365978755.jpg,O1CN012EXq1edKon7bfoV_!!365978755.jpg,O1CN012EXq1fJLvne5D7d_!!365978755.jpg,O1CN012EXq1eIW9RPxDdB_!!365978755.jpg,O1CN012EXq1fWMxUCOoVg_!!365978755.jpg,O1CN012EXq1e3o0zfw9iE_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,55, "O1CN012EXq0rcTk2CIRRD_!!365978755.jpg,O1CN012EXq0puEsm4cRuy_!!365978755.jpg,O1CN01aJ2vaI2EXq6ptQS1r_!!365978755.jpg,O1CN01BIDpYz2EXq6n1tXe2_!!365978755.gif,O1CN01TgcfUt2EXq6p6Z7ty_!!365978755.gif,O1CN012EXq0rcTk2CIRRD_!!365978755.jpg", "【羊丽羊】澳洲羊毛椅垫沙发坐垫皮毛一体方形垫子羊剪绒毛垫", "298.00","O1CN012EXq1fAIeKovcRg_!!365978755.jpg,O1CN012EXq1gbLUUxmqbO_!!365978755.jpg,O1CN012EXq1ev76eXvTAm_!!365978755.jpg,O1CN012EXq1dNC36PXjvs_!!365978755.jpg,O1CN012EXq1Ya6ecf2rhc_!!365978755.jpg,O1CN012EXq1ecuu5I8QSS_!!365978755.jpg,O1CN012EXq1eqmUoSXOg5_!!365978755.jpg,O1CN012EXq1do3K4YtvKZ_!!365978755.jpg,O1CN012EXq1eqkQ0tl2Kh_!!365978755.jpg,O1CN012EXq1ev9WTTdFDm_!!365978755.jpg,O1CN012EXq1fJLvne5D7d_!!365978755.jpg,O1CN012EXq1eIW9RPxDdB_!!365978755.jpg,O1CN012EXq1fWMxUCOoVg_!!365978755.jpg,O1CN012EXq1e3o0zfw9iE_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,56, "O1CN012EXq0q7Ys2w6Mad_!!365978755.jpg,O1CN012EXq0iftwEahfjl_!!365978755.jpg,O1CN012EXq0pNhr4TRjo7_!!365978755.jpg,O1CN01wV5vbX2EXq6nwnrGW_!!365978755.jpg,O1CN01n4TlqP2EXq6syYxn6_!!365978755.jpg,O1CN012EXq0q7Ys2w6Mad_!!365978755.jpg", "羊丽羊澳洲羊毛儿童房防滑卡通地毯羊皮毛一体加厚卧室床边小地毯", "298.00","O1CN012EXq1dpDHxKugtk_!!365978755.jpg,O1CN012EXq1cpVUu5wsup_!!365978755.jpg,O1CN012EXq1gC3xdAQ1Qu_!!365978755.jpg,O1CN012EXq1eJtxBeYNlB_!!365978755.jpg,O1CN012EXq1eJtU6GAQmL_!!365978755.jpg,O1CN012EXq1fWWT5O9hwK_!!365978755.jpg,O1CN012EXq1cpYmkjstQM_!!365978755.jpg,O1CN012EXq1YbH5qHqOxq_!!365978755.jpg,O1CN012EXq1exJ8T4lR0c_!!365978755.jpg,O1CN012EXq1e1L0dWdeZ2_!!365978755.jpg,O1CN012EXq1dni7QBXSqe_!!365978755.jpg,O1CN012EXq1exJL5PPzXM_!!365978755.jpg,O1CN012EXq1fYIWQg4RwZ_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,57, "TB2LOWgahPI8KJjSspfXXcCFXXa_!!365978755.jpg,TB2y0OiagnD8KJjy1XdXXaZsVXa_!!365978755.jpg,TB2s3ipafDH8KJjy1XcXXcpdXXa_!!365978755.jpg,TB2CveladrJ8KJjSspaXXXuKpXa_!!365978755.jpg,O1CN01myWFeO2EXq6rHILkH_!!365978755.jpg,TB2LOWgahPI8KJjSspfXXcCFXXa_!!365978755.jpg", "羊丽羊客厅茶几羊毛地毯卧室床边毯满铺欧式现代家用防滑进门地毯", "6980.00","TB2.RGndrRkpuFjSspmXXc.9XXa_!!365978755.jpg,TB2aqFYbE5O.eBjSZFxXXaaJFXa_!!365978755.jpg,TB2M442byGO.eBjSZFjXXcU9FXa_!!365978755.jpg,TB2qnV9bp5N.eBjSZFvXXbvMFXa_!!365978755.jpg,TB2ULd6bvSM.eBjSZFNXXbgYpXa_!!365978755.jpg,TB2G642bByN.eBjSZFgXXXmGXXa_!!365978755.jpg,TB21nQ1aY5K.eBjy0FfXXbApVXa_!!365978755.jpg,TB2o1x3bA1M.eBjSZPiXXawfpXa_!!365978755.jpg,TB2byw8a9iJ.eBjSspiXXbqAFXa_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,58, "TB2Xb1xaf6H8KJjSspmXXb2WXXa_!!365978755.jpg,TB2QPOAXRfM8KJjSZFhXXcRyFXa_!!365978755.jpg,TB2dQayam_I8KJjy0FoXXaFnVXa_!!365978755.jpg,TB2dgWCajnD8KJjSspbXXbbEXXa_!!365978755.jpg,TB2FROualfH8KJjy1XbXXbLdXXa_!!365978755.jpg,TB2Xb1xaf6H8KJjSspmXXb2WXXa_!!365978755.jpg", "欧式卧室满铺客厅茶几羊剪绒地毯定制皮毛一体长方形床边毯", "6980.00","TB2.RGndrRkpuFjSspmXXc.9XXa_!!365978755.jpg,TB2Q.gEa9iJ.eBjSspfXXbBKFXa_!!365978755.jpg,TB2E4k.X0AvbeFjSspbXXbcOFXa_!!365978755.jpg,TB2tRENa9CI.eBjy1XbXXbUBFXa_!!365978755.jpg,TB2zWEMa9iJ.eBjSspiXXbqAFXa_!!365978755.jpg,TB2P47NaYOJ.eBjy1XaXXbNupXa_!!365978755.jpg,TB2sOAxaYaI.eBjy1XdXXcoqXXa_!!365978755.jpg,TB2S3JAbxaK.eBjSZFwXXXjsFXa_!!365978755.jpg,TB20JtCbByN.eBjSZFgXXXmGXXa_!!365978755.jpg,TB2RVFFbyKO.eBjSZPhXXXqcpXa_!!365978755.jpg,TB2wFBIbxeK.eBjSZFuXXcT4FXa_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,59, "O1CN012EXq0t8K0UUZRRO_!!365978755.jpg,O1CN012EXq0sxojYbHep2_!!365978755.jpg,TB205qHXRLN8KJjSZFpXXbZaVXa_!!365978755.jpg,TTB2sfePXGLN8KJjSZFmXXcQ6XXa_!!365978755.jpg,TB20MEPXfQs8KJjSZFEXXc9RpXa_!!365978755.jpg,O1CN012EXq0t8K0UUZRRO_!!365978755.jpg", "羊丽羊澳洲羊毛儿童房防滑卡通地毯羊皮毛一体加厚卧室床边小地毯", "398.00","TB2.RGndrRkpuFjSspmXXc.9XXa_!!365978755.jpg,TB2aUPFbOGO.eBjSZFjXXcU9FXa_!!365978755.jpg,TB2vYzFbQ1M.eBjSZFFXXc3vVXa_!!365978755.jpg,TB2NtbNbNeK.eBjSZFuXXcT4FXa_!!365978755.jpg,TB2MI6HbNaK.eBjSZFAXXczFXXa_!!365978755.jpg,TB2BE_FbOGO.eBjSZFjXXcU9FXa_!!365978755.jpg,TB2bcrNbSmK.eBjSZPfXXce2pXa_!!365978755.jpg,TB21NzDbQWM.eBjSZFhXXbdWpXa_!!365978755.jpg,TB2oWrLbMCN.eBjSZFoXXXj0FXa_!!365978755.jpg,TB28o_DbJuO.eBjSZFCXXXULFXa_!!365978755.jpg,TB2lmLGbFOP.eBjSZFHXXXQnpXa_!!365978755.jpg,TB2VlrIbPm2.eBjSZFtXXX56VXa_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,60, "O1CN012EXq0sGMoMPxb3n_!!365978755.jpg,TB2p4KxacjI8KJjSsppXXXbyVXa_!!365978755.jpg,TB2nsSzaf2H8KJjy0FcXXaDlFXa_!!365978755.jpg,TB20CaGajnD8KJjSspbXXbbEXXa_!!365978755.jpg,TB2NfeAacLJ8KJjy0FnXXcFDpXa_!!365978755.jpg,O1CN012EXq0sGMoMPxb3n_!!365978755.jpg", "羊丽羊 澳洲羊毛沙发垫整张羊皮地毯羊皮自由皮型卧室地毯飘窗垫", "1160.00","TB2.RGndrRkpuFjSspmXXc.9XXa_!!365978755.jpg,TB2.klUaZeK.eBjSszgXXczFpXa_!!365978755.jpg,TB2TX4RaZaJ.eBjy0FbXXcwrFXa_!!365978755.jpg,TB2lBJ0aYOJ.eBjy1XaXXbNupXa_!!365978755.jpg,TB2n2aobhqK.eBjSZJiXXaOSFXa_!!365978755.jpg,TB2Yt9eblyN.eBjSZFIXXXbUVXa_!!365978755.jpg,TB2lNulblyN.eBjSZFkXXb8YFXa_!!365978755.jpg,TB27DlYaY1J.eBjSspnXXbUeXXa_!!365978755.jpg,TB2MzynbmiK.eBjSZFyXXaS4pXa_!!365978755.jpg,TB2dGz_aygSXeFjy0FcXXahAXXa_!!365978755.jpg,TB21tXWa9KI.eBjy1zcXXXIOpXa_!!365978755.jpg,TB2HhNVa4mJ.eBjy0FhXXbBdFXa_!!365978755.jpg,TB2ZGGibjm2.eBjSZFtXXX56VXa_!!365978755.jpg,TB2QBWibXOP.eBjSZFHXXXQnpXa_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,61, "TB2e85BanTI8KJjSsphXXcFppXa_!!365978755.jpg,TB2KQuLXJHO8KJjSZFLXXaTqVXa_!!365978755.jpg,TB2LpWSagDD8KJjy0FdXXcjvXXa_!!365978755.jpg,TB2e61JXTfN8KJjSZFjXXXGvpXa_!!365978755.jpg,TB2MheJXRfM8KJjSZFOXXXr5XXa_!!365978755.jpg,TB2e85BanTI8KJjSsphXXcFppXa_!!365978755.jpg", "羊丽羊澳洲羊毛卧室地毯整张羊皮沙发垫客厅床边毯茶几垫飘窗垫", "1960.00","TB2.RGndrRkpuFjSspmXXc.9XXa_!!365978755.jpg,TB2FXcxaCCI.eBjy1XbXXbUBFXa_!!365978755.jpg,TB2jqsnaraI.eBjSspaXXXIKpXa_!!365978755.jpg,TB2cp2QaU5O.eBjSZFxXXaaJFXa_!!365978755.jpg,TB2KR.oareI.eBjSspkXXaXqVXa_!!365978755.jpg,TB2j8ZqaseJ.eBjy0FiXXXqapXa_!!365978755.jpg,TB2Qkwoaq9I.eBjy0FeXXXqwFXa_!!365978755.jpg,TB27qj0aNqK.eBjSZJiXXaOSFXa_!!365978755.jpg,TB2sOYQaQ1M.eBjSZFFXXc3vVXa_!!365978755.jpg,TB2OFgvaCiJ.eBjSspiXXbqAFXa_!!365978755.jpg,TB2WQMoaq9I.eBjy0FeXXXqwFXa_!!365978755.jpg,TB2KVgvar1J.eBjSspnXXbUeXXa_!!365978755.jpg,TB2JFj4aICO.eBjSZFzXXaRiVXa_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,62, "TB2HpOJanvI8KJjSspjXXcgjXXa_!!365978755.jpg,TB2sDOHagvD8KJjSsplXXaIEFXa_!!365978755.jpg,TB2MVSFannI8KJjSszgXXc8ApXa_!!365978755.jpg,TB2bfuIahTI8KJjSspiXXbM4FXa_!!365978755.jpg,TB2PvWRamfD8KJjSszhXXbIJFXa_!!365978755.jpg,TB2HpOJanvI8KJjSspjXXcgjXXa_!!365978755.jpg", "澳洲羊毛沙发垫椅垫羊皮毛一体地毯飘窗垫客厅长毛羊毛坐垫包邮", "798.00","O1CN012EXq0smPJL0Pcvf_!!365978755.jpg,O1CN012EXq0tnoFkU3DhU_!!365978755.jpg,O1CN012EXq0tQcliILgYf_!!365978755.jpg,O1CN012EXq0uB5FQzC5eh_!!365978755.jpg,O1CN012EXq0tQfFdEzi9g_!!365978755.jpg,O1CN012EXq0sejG4SREFf_!!365978755.jpg,O1CN012EXq0riguDHNXPt_!!365978755.jpg,O1CN012EXq0tEOXoVthPK_!!365978755.jpg,O1CN012EXq0qxp7YyIuo5_!!365978755.jpg,O1CN012EXq0mgXOn2Baqp_!!365978755.jpg,O1CN012EXq0t43mtZfUjS_!!365978755.jpg,O1CN012EXq0tGGkSF3Kib_!!365978755.jpg,O1CN012EXq0su4hY2kdhM_!!365978755.jpg,O1CN012EXq0tQlYkXvnu1_!!365978755.jpg,O1CN012EXq0su5RRmWQZ5_!!365978755.jpg,O1CN012EXq0t48100HAac_!!365978755.jpg,O1CN012EXq0smZmieto84_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,63, "TB2qznXX6b.heNjSZFAXXchKXXa_!!365978755.jpg,TB2hr.fhYYI8KJjy0FaXXbAiVXa_!!365978755.jpg,TB2Z_yLltzJ8KJjSspkXXbF7VXa_!!365978755.jpg,TB2e6vth46I8KJjSszfXXaZVXXa_!!365978755.jpg,O1CN01fTZlIu2EXq6oY7mxh_!!365978755.jpg,TB2qznXX6b.heNjSZFAXXchKXXa_!!365978755.jpg", "羊丽羊澳洲羊毛整张羊皮毛一体沙发垫客厅地毯飘窗垫羊毛自由皮型", "229.00","TB23JT_h6nD8KJjSspbXXbbEXXa_!!365978755.jpg,TB2mnfTh4rI8KJjy0FpXXb5hVXa_!!365978755.jpg,TB2lPsvhZLJ8KJjy0FnXXcFDpXa_!!365978755.jpg,TB28CgkhY_I8KJjy1XaXXbsxpXa_!!365978755.jpg,TB2w32gh8fH8KJjy1XbXXbLdXXa_!!365978755.jpg,TB222DQh4HI8KJjy1zbXXaxdpXa_!!365978755.jpg,TB2KTHyh_nI8KJjSszgXXc8ApXa_!!365978755.jpg,TB2Vzoch_vI8KJjSspjXXcgjXXa_!!365978755.jpg,TB2n7tZgQfb_uJjSsrbXXb6bVXa_!!365978755.jpg,TB2MjzQh4HI8KJjy1zbXXaxdpXa_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,64, "O1CN012EXq0q090gwLKVq_!!365978755.jpg,O1CN012EXq0qKWHfWSClI_!!365978755.jpg,O1CN012EXq0t2HrRmVUNd_!!365978755.jpg,TB2LsmKacjI8KJjSsppXXXbyVXa_!!365978755.jpg,O1CN01kgFpuq2EXq6nKe6tE_!!365978755.jpg,O1CN012EXq0q090gwLKVq_!!365978755.jpg", "【羊丽羊】澳洲纯羊毛沙发垫 欧式高档羊皮毛一体飘窗垫羊毛皮型", "498.00","TB2.RGndrRkpuFjSspmXXc.9XXa_!!365978755.jpg,TB2l16tbHaI.eBjy1XdXXcoqXXa_!!365978755.jpg,TB2g0zObSqJ.eBjy1zbXXbx8FXa_!!365978755.jpg,TB2C40cestnpuFjSZFvXXbcTpXa_!!365978755.jpg,TB25vbtbHaI.eBjy1XdXXcoqXXa_!!365978755.jpg,TB22iHKbNmI.eBjy0FlXXbgkVXa_!!365978755.jpg,TB2vALEbS1I.eBjy0FjXXabfXXa_!!365978755.jpg,TB2p3WycduO.eBjSZFCXXXULFXa_!!365978755.jpg,TB2scuEcmiK.eBjSZFsXXbxZpXa_!!365978755.jpg,TB2Wk6BbIaJ.eBjy0FbXXcwrFXa_!!365978755.jpg,TB27788auNOdeFjSZFBXXctzXXa_!!365978755.jpg,TB2HtbLbH1J.eBjSspnXXbUeXXa_!!365978755.jpg,TB2JBp8auNOdeFjSZFBXXctzXXa_!!365978755.jpg,TB2R0rLbH1J.eBjSspnXXbUeXXa_!!365978755.jpg,TB2PgiAchaK.eBjSZFwXXXjsFXa_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,65, "O1CN012EXq0sk12E2Kuwp_!!365978755.jpg,TB2ebaQalDH8KJjSspnXXbNAVXa_!!365978755.jpg,TB2LKWPacjI8KJjSsppXXXbyVXa_!!365978755.jpg,TB2sieQacnI8KJjSspeXXcwIpXa_!!365978755.jpg,O1CN01lMBJBf2EXq6nv63a7_!!365978755.jpg,O1CN012EXq0sk12E2Kuwp_!!365978755.jpg", "【羊丽羊】澳洲皮毛一体沙发垫坐垫飘窗垫卡通家居短毛纯羊毛垫子", "1186.00","TB2.RGndrRkpuFjSspmXXc.9XXa_!!365978755.jpg,TB2ggTNaxRzc1FjSZFPXXcGAFXa_!!365978755.jpg,TB2ghKScXOP.eBjSZFHXXXQnpXa_!!365978755.jpg,TB2WxeVcmiK.eBjSZFsXXbxZpXa_!!365978755.jpg,TB2xCaYclyN.eBjSZFkXXb8YFXa_!!365978755.jpg,TB2onq3cX5N.eBjSZFvXXbvMFXa_!!365978755.jpg,TB2.zCYcjm2.eBjSZFtXXX56VXa_!!365978755.jpg,TB2tNH8bMSI.eBjy1XcXXc1jXXa_!!365978755.jpg,TB2O3CTck1M.eBjSZPiXXawfpXa_!!365978755.jpg,TB2jbzTbS1I.eBjy0FjXXabfXXa_!!365978755.jpg,TB2Esz0bNmI.eBjy0FlXXbgkVXa_!!365978755.jpg,TB2.i5ScXOP.eBjSZFHXXXQnpXa_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,66, "O1CN012EXq0rvv0Mo5eU2_!!365978755.jpg,TB2ZyqPadbJ8KJjy1zjXXaqapXa_!!365978755.jpg,TB2nMWPacrI8KJjy0FhXXbfnpXa_!!365978755.jpg,TB2E49WafDH8KJjy1XcXXcpdXXa_!!365978755.jpg,O1CN010DouPz2EXq6prtNe4_!!365978755.jpg,O1CN012EXq0rvv0Mo5eU2_!!365978755.jpg", "羊丽羊 澳洲羊皮毛一体椅垫纯羊毛地垫卡通动物毯子沙发垫定做", "528.00","TB2.RGndrRkpuFjSspmXXc.9XXa_!!365978755.jpg,TB20dkpbUOO.eBjSZFLXXcxmXXa_!!365978755.jpg,TB2aR6RX1NOdeFjSZFBXXctzXXa_!!365978755.jpg,TB2RFIibJuO.eBjSZFCXXXULFXa_!!365978755.jpg,TB2V3InbQ5M.eBjSZFrXXXPgVXa_!!365978755.jpg,TB2xqVeaghJc1FjSZFDXXbvnFXa_!!365978755.jpg,TB2rxgnbQ5M.eBjSZFrXXXPgVXa_!!365978755.jpg,TB2gZUsbNeK.eBjSZFuXXcT4FXa_!!365978755.jpg,TB23qwibJuO.eBjSZFCXXXULFXa_!!365978755.jpg,TB21hwlbFOP.eBjSZFHXXXQnpXa_!!365978755.jpg,TB298UmbOGO.eBjSZFEXXcy9VXa_!!365978755.jpg,TB22f3ubRaM.eBjSZFMXXcypVXa_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,67, "O1CN012EXq0sAuSOeAkW1_!!365978755.jpg,TB2Tdy2ajnD8KJjSspbXXbbEXXa_!!365978755.jpg,TB2sY9PahPI8KJjSspfXXcCFXXa_!!365978755.jpg,TB2tF1VacLJ8KJjy0FnXXcFDpXa_!!365978755.jpg,TB2vICQamYH8KJjSspdXXcRgVXa_!!365978755.jpg,O1CN012EXq0sAuSOeAkW1_!!365978755.jpg", "羊丽羊 澳洲羊皮毛一体椅垫纯羊毛地垫卡通动物毯子沙发垫定做", "528.00","TB2.RGndrRkpuFjSspmXXc.9XXa_!!365978755.jpg,TB20dkpbUOO.eBjSZFLXXcxmXXa_!!365978755.jpg,O1CN012EXq0zBKAnkM5Ql_!!365978755.jpg,O1CN012EXq0zZ3EOf61tl_!!365978755.jpg,O1CN012EXq0y0XRf4rLla_!!365978755.jpg,O1CN012EXq0y0XmT5uwcO_!!365978755.jpg,O1CN012EXq0s09EbXtzTG_!!365978755.jpg,O1CN012EXq0zZ4m481Z7t_!!365978755.jpg,O1CN012EXq0xVYmsgrvdJ_!!365978755.jpg,O1CN012EXq0yHLvKbyAqj_!!365978755.jpg,O1CN012EXq0yOtxHS9MUB_!!365978755.jpg,O1CN012EXq0wIYuZAeRlj_!!365978755.jpg,O1CN012EXq0ymQU3MKKov_!!365978755.jpg,O1CN012EXq0zN0lF2IysZ_!!365978755.jpg,"
+);
+INSERT INTO details VALUES(
+    null,68, "O1CN012EXq0peNxnT8jUA_!!365978755.jpg,TB2jYuZXGLN8KJjSZFmXXcQ6XXa_!!365978755.jpg,TB2QgyWahHI8KJjy1zbXXaxdpXa_!!365978755.jpg,TB2pVOTacnI8KJjSsziXXb8QpXa_!!365978755.jpg,TB2pSaRXTfN8KJjSZFjXXXGvpXa_!!365978755.jpg,O1CN012EXq0peNxnT8jUA_!!365978755.jpg", "【羊丽羊】真皮毛一体沙发垫飘窗垫地垫可填充考拉儿童坐垫", "219.00","TB2.RGndrRkpuFjSspmXXc.9XXa_!!365978755.jpg,TB22HykclaM.eBjSZFMXXcypVXa_!!365978755.jpg,TB2zkF2clyN.eBjSZFIXXXbUVXa_!!365978755.jpg,TB2MISecoOO.eBjSZFLXXcxmXXa_!!365978755.jpg,TB2ojygchqK.eBjSZJiXXaOSFXa_!!365978755.jpg,TB2XYrfbIaJ.eBjy0FbXXcwrFXa_!!365978755.jpg,TB2P9igcmmK.eBjSZPfXXce2pXa_!!365978755.jpg,TB21Es4bfTJXuFjSspeXXapipXa_!!365978755.jpg,TB2QvHqbSiJ.eBjSspiXXbqAFXa_!!365978755.jpg,TB2ug1.bH1J.eBjSszcXXbFzVXa_!!365978755.jpg,TB2JBiXcXOP.eBjSZFHXXXQnpXa_!!365978755.jpg,TB2MsWdck5M.eBjSZFrXXXPgVXa_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,69, "TB2tin.omfD8KJjSszhXXbIJFXa_!!365978755.jpg,TB21ouIodzJ8KJjSspkXXbF7VXa_!!365978755.jpg,TB2HNS7olHH8KJjy0FbXXcqlpXa_!!365978755.jpg,TB2PbrFolDH8KJjy1zeXXXjepXa_!!365978755.jpg,O1CN01BSmkL32EXq6si1l5w_!!365978755.jpg,TB2tin.omfD8KJjSszhXXbIJFXa_!!365978755.jpg", "澳洲羊毛羊毛绒卡通地毯地垫沙发垫羊皮毛一体坐垫卧室地毯飘窗垫", "1198.00","TB2SJP8of2H8KJjy1zkXXXr7pXa_!!365978755.jpg,TB2RDLFocbI8KJjy1zdXXbe1VXa_!!365978755.jpg,TB26jiAodbJ8KJjy1zjXXaqapXa_!!365978755.jpg,TB21.LKojnD8KJjSspbXXbbEXXa_!!365978755.jpg,TB2KpHLojnD8KJjSspbXXbbEXXa_!!365978755.jpg,TB2K5nyogvD8KJjy0FlXXagBFXa_!!365978755.jpg,TB2u_hreAfb_uJkHFCcXXXagFXa_!!365978755.jpg,TB23TsGocLJ8KJjy0FnXXcFDpXa_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,70, "O1CN012EXq0sEcGBjz2OT_!!365978755.jpg,TB21ouIodzJ8KJjSspkXXbF7VXa_!!365978755.jpg,O1CN012EXq0sEcGBjz2OT_!!365978755.jpg,O1CN012EXq10unmTqr0rp_!!365978755.jpg,O1CN012EXq10unmTqr0rp_!!365978755.jpg,O1CN012EXq0sEcGBjz2OT_!!365978755.jpg", "【羊丽羊】羊毛冬季汽车坐垫皮毛一体前排单座中长毛绒羊毛垫", "439.00","TB2.RGndrRkpuFjSspmXXc.9XXa_!!365978755.jpg,TB2R9LGXuJ8puFjy1XbXXagqVXa_!!365978755.jpg,TB2FJr2XB0kpuFjy1XaXXaFkVXa_!!365978755.jpg,TB2IVL3XB8lpuFjy0FnXXcZyXXa_!!365978755.jpg,TB2dev1XrBkpuFjy1zkXXbSpFXa_!!365978755.jpg,TB2Hf4dXJFopuFjSZFHXXbSlXXa_!!365978755.jpg,TB2jQBdXUhnpuFjSZFEXXX0PFXa_!!365978755.jpg,TB2Lj8eXOpnpuFjSZFIXXXh2VXa_!!365978755.jpg,TB2dwVdXJRopuFjSZFtXXcanpXa_!!365978755.jpg,TB2XURdXUlnpuFjSZFjXXXTaVXa_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,71, "TB2UYFqg8HH8KJjy0FbXXcqlpXa_!!365978755.jpg,TB2sbNVbQfb_uJkHFCcXXXagFXa_!!365978755.jpg,TB23H4PcBfM8KJjSZPiXXXdspXa_!!365978755.jpg,TB2ZIymcwjN8KJjSZFCXXb3GpXa_!!365978755.jpg,TB2cWJGbQfb_uJkHFrdXXX2IVXa_!!365978755.jpg,TB2UYFqg8HH8KJjy0FbXXcqlpXa_!!365978755.jpg", "澳洲纯羊毛床垫冬季加厚单双人保暖皮毛一体羊毛床褥子垫", "3980.00","TB247zvXzb.heNjSZFAXXchKXXa_!!365978755.jpg,TB26MrTgMLD8KJjSszeXXaGRpXa_!!365978755.jpg,TB2iz3TclfM8KJjSZPiXXXdspXa_!!365978755.jpg,TB2j.w1bAfb_uJkSnaVXXXFmVXa_!!365978755.jpg,TB2vckdgMDD8KJjy0FdXXcjvXXa_!!365978755.jpg,TB2W3PTgNrI8KJjy0FpXXb5hVXa_!!365978755.jpg,TB2UkxleyqAXuNjy1XdXXaYcVXa_!!365978755.jpg,TB24z0ucqLN8KJjSZFKXXb7NVXa_!!365978755.jpg,O1CN01n5v2B42EXq6q2AtXP_!!365978755.jpg,O1CN01RAfy1L2EXq6msxg5E_!!365978755.jpg,O1CN01ZgwSQt2EXq6tVXDDZ_!!365978755.jpg,TB256BdcBfM8KJjSZFOXXXr5XXa_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,72, "TB2aS6Paf2H8KJjy0FcXXaDlFXa_!!365978755.jpg,TB2wIaBXj3z9KJjy0FmXXXiwXXa_!!365978755.jpg,TB2mdjOahHI8KJjy1zbXXaxdpXa_!!365978755.jpg,O1CN01gP3sNe2EXq6iHQCxO_!!365978755.jpg,O1CN01KQHCog2EXq6nnqBbJ_!!365978755.jpg,TB2aS6Paf2H8KJjy0FcXXaDlFXa_!!365978755.jpg", "【羊丽羊】羊丽羊澳洲羊皮毛床垫茶几垫地毯", "2580.00","O1CN012EXq1bzCEXq44hR_!!365978755.jpg,O1CN012EXq1bzC26jQKw9_!!365978755.jpg,O1CN012EXq1flQCB5jj4Z_!!365978755.jpg,O1CN012EXq1eL8AttW2g4_!!365978755.jpg,O1CN012EXq1cXoFw6MabM_!!365978755.jpg,O1CN012EXq1dnSPVQG8hc_!!365978755.jpg,O1CN012EXq1efGwKlE5V3_!!365978755.jpg,O1CN012EXq1flQOlL2VlW_!!365978755.jpg,O1CN012EXq1exJ8T4lR0c_!!365978755.jpg,O1CN012EXq1e1L0dWdeZ2_!!365978755.jpg,O1CN012EXq1dni7QBXSqe_!!365978755.jpg,O1CN012EXq1exJL5PPzXM_!!365978755.jpg,O1CN012EXq1fYIWQg4RwZ_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,73, "TB2Q5dBegvD8KJjy0FlXXagBFXa_!!365978755.jpg,TB2S0VBegLD8KJjSszeXXaGRpXa_!!365978755.jpg,TB2tHJlehTI8KJjSspiXXbM4FXa_!!365978755.jpg,TB2QAaObOqAXuNjy1XdXXaYcVXa_!!365978755.jpg,TB2oEhEegfH8KJjy1zcXXcTzpXa_!!365978755.jpg,TB2Q5dBegvD8KJjy0FlXXagBFXa_!!365978755.jpg", "澳洲羊皮抱枕羊毛沙发靠垫高档短羊毛含芯皮毛一体卡通抱枕", "238.00","O1CN01rxJH3f2EXq6po2QuI_!!365978755.jpg,O1CN01rxJH3f2EXq6po2QuI_!!365978755.jpg,O1CN01BNDiuj2EXq6vIUnsj_!!365978755.jpg,O1CN01nJkl882EXq6rmrAIx_!!365978755.jpg,O1CN01TxomlD2EXq6uOb7Yp_!!365978755.jpg,O1CN01mBnnGL2EXq6vIReTY_!!365978755.jpg,O1CN01phidBA2EXq6sTNk5M_!!365978755.jpg,O1CN01DIPEsg2EXq6tA74lG_!!365978755.jpg,O1CN019ZxpeA2EXq6paoRuZ_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,74, "O1CN014BaGiY2EXq6rkcCQI_!!365978755.jpg,O1CN018RmaXK2EXq6rcvX5V_!!365978755.jpg,O1CN01d2U15T2EXq6r1tXfp_!!365978755.jpg,O1CN01qJVr472EXq6rlDzrt_!!365978755.jpg,O1CN013n8dyZ2EXq6triJMf_!!365978755.jpg,O1CN014BaGiY2EXq6rkcCQI_!!365978755.jpg", "【羊丽羊】欧式羊毛抱枕沙发抱枕靠垫羊毛靠垫抱枕皮毛一体抱枕", "188.00","O1CN01Nj9SlV2EXq6plvr6B_!!365978755.jpg,O1CN01irHxGS2EXq6t7xoXU_!!365978755.jpg,O1CN01vyTgxZ2EXq6uoiPDn_!!365978755.jpg,O1CN01E0Cie12EXq6t80Z2q_!!365978755.jpg,O1CN0115ORW42EXq6rJ7BSx_!!365978755.jpg,O1CN01erwaK42EXq6rklfC0_!!365978755.jpg,O1CN01itMaeG2EXq6rlEsDn_!!365978755.jpg,O1CN01PZYx8j2EXq6t7ykmw_!!365978755.jpg,O1CN01DUNldw2EXq6sREoki_!!365978755.jpg,O1CN0118L7102EXq6uokxEy_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,75, "O1CN01JsCSch2EXq6oqG0Zc_!!365978755.jpg,O1CN01sF3HjD2EXq6u5qtW8_!!365978755.jpg,O1CN01zNznck2EXq6r1XjO6_!!365978755.jpg,O1CN01YDTWnT2EXq6t91fx9_!!365978755.jpg,O1CN01c607qH2EXq6t8zfE0_!!365978755.jpg,O1CN01JsCSch2EXq6oqG0Zc_!!365978755.jpg", "【羊丽羊】椅垫沙发坐垫澳洲羊皮毛一体方形垫子羊剪绒毛垫", "238.00","O1CN01h3UeLI2EXq6uXjwVm_!!365978755.jpg,O1CN01EIyUnv2EXq6t9T8KM_!!365978755.png,O1CN012QGPMo2EXq6sEIpop_!!365978755.png,O1CN01YkPXRW2EXq6nuFx6K_!!365978755.png,O1CN01O8KhTT2EXq6u6KZ7V_!!365978755.png,O1CN015xuMxk2EXq6t9TnvD_!!365978755.png,O1CN01ipr5Jh2EXq6jKIQd2_!!365978755.png,O1CN01tQWUaK2EXq6p48foD_!!365978755.png,O1CN014H3hIm2EXq6qK5Heg_!!365978755.png,O1CN01BSobqC2EXq6r3IxYh_!!365978755.jpg"
+);
+INSERT INTO details VALUES(
+    null,76, "O1CN01LH44VM2EXq6onzMUF_!!365978755.jpg,O1CN01cQ8LMo2EXq6ony9fP_!!365978755.jpg,O1CN01NRQOOI2EXq6onzILA_!!365978755.jpg,O1CN01puoATo2EXq6qzCmrm_!!365978755.jpg,O1CN01rNGWKh2EXq6sBYeAf_!!365978755.jpg,O1CN01LH44VM2EXq6onzMUF_!!365978755.jpg", "澳洲冬季纯羊毛坐椅垫办公室电脑椅垫皮毛一体加厚保暖防滑坐垫", "178.00","O1CN01XF9F4f2EXq6ns2ewK_!!365978755.jpg,O1CN017v3J1R2EXq6t79jaZ_!!365978755.jpg,O1CN01cNUtJ12EXq6ns06vk_!!365978755.jpg,O1CN01OjvDm42EXq6p1sEI1_!!365978755.jpg,O1CN01rDtMyi2EXq6uVKARE_!!365978755.jpg,O1CN010fJFBh2EXq6nrzRMh_!!365978755.jpg,O1CN01eSg3Zz2EXq6rgnl1l_!!365978755.jpg,O1CN013LXgMW2EXq6qYbUgr_!!365978755jpg,O1CN01n5v2B42EXq6q2AtXP_!!365978755.jpg,O1CN01RAfy1L2EXq6msxg5E_!!365978755.jpg,O1CN01ZgwSQt2EXq6tVXDDZ_!!365978755.jpg,O1CN0181ipiE2EXq6iIsdb8_!!365978755.jpg,O1CN01VN5MOc2EXq6rOAFTh_!!365978755.jpg"
+);
